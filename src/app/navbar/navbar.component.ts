@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  public login = localStorage.getItem("role");
+  nameUser = localStorage.getItem("user");
+
   constructor(private router: Router) {
 
   }
@@ -18,4 +21,20 @@ export class NavbarComponent implements OnInit {
   LogIn() {
     this.router.navigate(["login"]);
   }
+ 
+  loginOut(){
+
+    localStorage.removeItem("role");
+    localStorage.removeItem("user");
+    localStorage.removeItem("login");
+
+    this.router.navigate(['/home'])
+    .then(() => {
+        window.location.reload();
+    });
+  }
+
+
+
+  
 }

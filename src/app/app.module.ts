@@ -9,6 +9,7 @@ import { LoginUser } from './componentes/login-user/login.user';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterUser } from './componentes/register-user/register.user';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './componentes/Home/Home.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
     AppComponent,
     LoginUser,
     RegisterUser,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
     
   ],
   imports: [

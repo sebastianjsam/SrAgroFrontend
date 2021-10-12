@@ -2,6 +2,8 @@ import { NullTemplateVisitor } from "@angular/compiler";
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { LoginUserService } from "src/app/servicios/login.user.service";
+import { Router } from '@angular/router';
+import { windowCount } from "rxjs/operators";
 
 @Component({
     selector: 'login-user',
@@ -18,7 +20,7 @@ import { LoginUserService } from "src/app/servicios/login.user.service";
 
     public password: string = "";
 
-    public constructor(private loginUserService: LoginUserService) {};
+    public constructor(private loginUserService: LoginUserService, private router: Router) {};
     public ngOnInit() {
 
     }
@@ -32,6 +34,9 @@ import { LoginUserService } from "src/app/servicios/login.user.service";
         this.loginUserService.validateUser(user.username, user.password).subscribe(data =>{
           console.log(data);
         });
+
+        window.location.replace("/home");
+
     }
 
   

@@ -1,11 +1,14 @@
+
+
+
 <div class="login">
     <form class="custom-form" method="post">
-      <h1>Login</h1>
+      <h1>Ingresar</h1>
       <input
         type="email"
         [(ngModel)]="usuario"
         name="email"
-        placeholder="Email"
+        placeholder="Correo"
         required="true"
       />
       {{usuario}}
@@ -13,7 +16,7 @@
         type="password"
         [(ngModel)]="password"
         name="password"
-        placeholder="Password"
+        placeholder="Contraseña"
         required="true"
       />
       <button type="submit" (click)="login()">Log in</button>
