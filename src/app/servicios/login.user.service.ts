@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
 export class LoginUserService{
   constructor(private http: HttpClient){}
 
-  validateUser(user: any): Observable<any>{
-    return this.http.get<any>("https://localhost:44370/Login?username=user@gmail.com&password=54321");
+  validateUser(user: string, password: string): Observable<any>{
+    return this.http.get("https://localhost:44370/Login?"+"username="+user+"&password="+password);
   }
 }

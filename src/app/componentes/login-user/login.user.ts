@@ -29,7 +29,7 @@ import { LoginUserService } from "src/app/servicios/login.user.service";
           username: this.usuario,
           password: this.password
         }
-        this.loginUserService.validateUser(user).subscribe(data =>{
+        this.loginUserService.validateUser(user.username, user.password).subscribe(data =>{
           console.log(data);
         });
     }
