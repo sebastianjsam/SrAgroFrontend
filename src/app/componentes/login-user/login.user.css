@@ -1,0 +1,21 @@
+.crear-cuenta{
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+}
+p{
+    text-align: center;
+}
+
+.crear-cuenta:link {
+    color: #265301;
+  }
+
+.crear-cuenta:hover {
+    border-bottom: 1px solid;
+    color: #535552;
+  }
+
+  .crear-cuenta {
+    color: #586e5c;
+  }

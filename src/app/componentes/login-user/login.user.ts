@@ -6,7 +6,9 @@ import { LoginUserService } from "src/app/servicios/login.user.service";
 @Component({
     selector: 'login-user',
     templateUrl: './login.user.html',
-    providers: [LoginUserService]
+    providers: [LoginUserService],
+    styleUrls: ['./login.user.css']
+
   })
 
   export class LoginUser implements OnInit{

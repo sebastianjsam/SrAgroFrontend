@@ -5,7 +5,7 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./register.user.html"
 })
 export class RegisterUser implements OnInit{
-  users:string[]=["farmer","customer","supervisor", "driver"];
+  users:string[]=["Farmer","Customer","Supervisor", "Driver"];
   seleccionado:string = "";
   nombre: string = "";
   apellidos: string = "";
@@ -25,16 +25,16 @@ export class RegisterUser implements OnInit{
 
   validarSeleccion() {
     switch (this.seleccionado) {
-      case 'farmer':
+      case 'Farmer':
           this.seleccionNum = 1;
           break;
-      case 'customer':
+      case 'Customer':
           this.seleccionNum = 2;
           break;
-      case 'driver':
+      case 'Driver':
           this.seleccionNum = 3;
           break;
-      case 'supervisor':
+      case 'Supervisor':
           this.seleccionNum = 4;
           break;
       default:

@@ -1,9 +1,9 @@
 <div class="register">
     <form class="custom-form" method="post">
       <h1>Register</h1>
-        <select name="miselect" [(ngModel)]="seleccionado" (ngModelChange)="validarSeleccion()">
-        <option [value]="item" *ngFor="let item of users">{{item}}</option>
-        </select>
+      <select name="miselect" [(ngModel)]="seleccionado" (ngModelChange)="validarSeleccion()">
+      <option [value]="item" *ngFor="let item of users">{{item}}</option>
+      </select>
       <input
         type="email"
         [(ngModel)]="email"
