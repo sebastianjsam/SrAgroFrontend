@@ -4,11 +4,14 @@ import { LoginUser } from './componentes/login-user/login.user';
 import { RegisterUser } from './componentes/register-user/register.user';
 import { HomeComponent } from './componentes/Home/Home.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CartComponent } from './componentes/cart/cart.component';
+import { CanActivateGuard } from './can-activate.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginUser},
   {path: 'register', component: RegisterUser},
-  {path: 'home', component: HomeComponent}
+  {path: 'home', component: HomeComponent},
+  {path: 'cart', component: CartComponent, canActivate: [CanActivateGuard]}
 ];
 
 @NgModule({
