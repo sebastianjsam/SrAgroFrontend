@@ -11,6 +11,7 @@ import { RegisterUser } from './componentes/register-user/register.user';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './componentes/Home/Home.component';
 import { RouterModule } from '@angular/router';
+import { AddProduct } from './componentes/add-product/add.product.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RouterModule } from '@angular/router';
     LoginUser,
     RegisterUser,
     NavbarComponent,
-    HomeComponent
+    HomeComponent, 
+    AddProduct
     
   ],
   imports: [
