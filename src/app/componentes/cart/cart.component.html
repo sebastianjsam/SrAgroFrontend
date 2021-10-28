@@ -1,3 +1,219 @@
-<p>
-  Detalles del Carrito
-</p>
+<div class="container" > 
+    <br> 
+  <button *ngIf = "id!=='3'" class="btn btn-primary btn-sm"  (click)="showDataProduct(true)" type="submit">Cargar Carrito</button>
+  <button *ngIf = "id=='3'" class="btn btn-success btn-sm"  (click)="showCart()" type="submit">Listar Carrito</button>
+  <br>
+  <br>  
+
+<div *ngIf = "active == 1 && id!=='3'">
+  
+  <div class="row">    
+    <div class="col-10">
+        <!--Informacion de producto-->
+        <div class="card">
+            <div class="row no-gutters">
+                <div class="col-4">
+  
+                    <div class="container">
+                        <br />
+                        COD:<label id="codProduct">{{id}}
+                        </label>
+                        <img src="../../../assets/images/CartPhoto.jpg" class="card-img" alt="...">
+                    </div>
+                </div>
+                <div class="col-7">
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="card-body">
+                                <h3 class="card-title">Información</h3>
+                                <p class="card-text">
+                                 
+                                    <strong>Nombre:</strong>&nbsp;<label id="nameProduct">{{name}}</label> &nbsp;&nbsp;<br />
+                                    <strong>Precio:</strong>$<label id="priceProduct">{{price}}</label>
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+  
+                                        <strong>Descripción:</strong>
+                                        <br />
+                                       {{descrip}}
+  
+                                    </small>
+                                </p>
+                                <strong>Cantidad:</strong>&nbsp;
+  
+                                <div class="row">
+                                    <div class="col-7">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <button id="decreaseProduct" (click)="restCant()" type="button" class="btn btn-success">-</button>
+                                            </div>
+                                            <input id="quantityClient" type="text" disabled class="form-control" value="{{cant}}" aria-label="Amount (to the nearest dollar)">
+                                            <div class="input-group-append">
+                                                <button id="increaseProduct"(click)="plusCant()" type="button" class="btn btn-success">+</button>
+                                            </div>
+                                        </div>
+                                    </div>
+  
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button type="button" id="addCar" class="btn btn-primary">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z" />
+                                        <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0v-2z" />
+                                        <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                    </svg>
+  
+                                </button>
+                            </div>
+                        </div>
+  
+                        <div class="col-5">
+                            <br /><br />
+                            <div class="alert alert-success" role="alert">
+  
+                                <h4>Desc <label id="descProduct">{{desc}}</label>% </h4>
+                                <br />
+                                <div>
+                                    <strong>Total a pagar:</strong>
+                                    <label>$<label id="totalProduct">&nbsp;{{ subtotal }}</label></label> <br />
+                                    <strong>Cantidad (Kg):</strong> 
+                                    <label id="cantShop">&nbsp;{{cant}}</label>
+                                    <hr />
+                                    <small>Lo mejor del campo para tu negocio :)</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+  
+  
+    </div>
+    <div class="col-2" >
+        <strong>Carrito</strong>
+        <div id="listCar"> 
+            <div class="row">
+                <div class="col-12">
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>N° productos:</strong> &nbsp;{{numList}}</li>
+                        <li class="list-group-item"><strong>Kg:</strong>  &nbsp;{{kgFake}}</li>
+                        <li class="list-group-item">
+                            <br><br><br><br>    
+                            <h5>Total pagar:</h5>
+                             {{totalFake}}</li>
+                      </ul>
+
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <br>
+  <h3>Productos añadidos</h3>
+  <table *ngIf = "activeTable==1" class="table table-striped">
+      <thead>
+        <tr class="table-warning">
+          <th scope="col">Cod.</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Cantidad (Kg)</th>
+          <th scope="col">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+  
+  
+          <tr *ngFor="let item of dataAns">
+              <th scope="row">{{item.cod_product}}</th>
+              <td>{{item.name}}</td>
+              <td>{{item.quantity}}</td>
+              <td>{{item.subtotal}}</td>
+          </tr>
+      </tbody>
+    </table>
+</div>
+
+<div *ngIf = "id=='3'">
+
+<div class="row" *ngIf = "activeTable==2">
+
+    <div class="col-4">
+
+        <strong>Información Carrito</strong>
+        <div id="listCar"> 
+            <div class="row">
+                <div class="col-12">
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>N° productos:</strong> &nbsp;{{numList}}</li>
+                        <li class="list-group-item"><strong>Kg:</strong>  &nbsp;{{kgFake}}</li>
+                        <li class="list-group-item"> 
+                            <strong>Total pagar:</strong> 
+                             {{totalFake}}</li>
+                      </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-8">
+        <h3>Listado de productos</h3>
+        <table  class="table table-striped">
+            <thead>
+              <tr class="table-success">
+                <th scope="col">Cod.</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cantidad (Kg)</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+        
+        
+                <tr *ngFor="let item of dataAns">
+                    <th scope="row">{{item.cod_product}}</th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.subtotal}}</td>
+                    <td>
+                        <button type="button" class="btn btn-warning btn-sm">
+    
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                              </svg>
+                        </button>
+                        &nbsp;
+                        <button type="button" class="btn btn-danger btn-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                              </svg>
+                        </button>
+    
+                        
+                    </td>
+    
+                </tr>
+            </tbody>
+          </table>
+
+
+
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+

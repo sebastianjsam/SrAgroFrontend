@@ -7,11 +7,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CartComponent } from './componentes/cart/cart.component';
 import { CanActivateGuard } from './can-activate.guard';
 
+
 const routes: Routes = [
   {path: 'login', component: LoginUser},
   {path: 'register', component: RegisterUser},
   {path: 'home', component: HomeComponent},
-  {path: 'cart', component: CartComponent, canActivate: [CanActivateGuard]}
+  {path: 'cart/:id', component: CartComponent, canActivate: [CanActivateGuard]}
+
 ];
 
 @NgModule({
