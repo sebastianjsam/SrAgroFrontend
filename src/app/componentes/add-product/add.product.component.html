@@ -11,15 +11,16 @@
             <div class="col">
                 <h1>Añadir producto</h1>
                 <hr>
-                
+                <input type="text" [(ngModel)]="producto.cod_product" name="codProducto" placeholder="Código del producto"
+                    required="required" />
                 <input type="text" [(ngModel)]="producto.name" name="nompreProducto" placeholder="Nombre del producto"
                     required="required" />
                 <input type="text" [(ngModel)]="producto.price" name="precio" placeholder="Precio del producto por kilo"
                     required="required" />
                 <input type="text" [(ngModel)]="producto.quanty" name="cantidadKilos"
                     placeholder="Cantidad de producto en kilogramos" required="required" />
-                <select name="categoria" [(ngModel)]="producto.category">
-                    <option  [value]="item" *ngFor="let item of categories">{{item.name}}</option>
+                <select name="categoria" [(ngModel)]="seleccionado" (ngModelChange)="guardarCategoria()">
+                    <option  [value]="item.name" *ngFor="let item of categories">{{item.name}}</option>
                 </select>
 
                 <input type="text" [(ngModel)]="producto.references.cod_ref" name="cod_referencia" placeholder="Código de referencia" required="required" />
@@ -36,7 +37,7 @@
                         <button type="submit" (click)="agregarProducto()">Añadir</button>
                     </div>
                     <div class="col">
-                        <button type="submit">Cancelar</button>
+                        <button type="submit" (click)="cancelar()">Cancelar</button>
                     </div>
                 </div>
 

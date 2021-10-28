@@ -13,6 +13,7 @@ import { References } from "../DTOS/referencesDTO";
 })
 
 export class AddProduct implements OnInit{
+    seleccionado:string = "";
     public categories = new Array<Category>();
     public producto = new Product();
     
@@ -33,10 +34,25 @@ export class AddProduct implements OnInit{
         })
     }
 
+    public guardarCategoria(){
+        console.log("seleccionado "+this.seleccionado);
+        this.categories.forEach(category => {
+            if(category.name == this.seleccionado){
+                this.producto.category = category;
+            }
+        });
+
+    }
+
     public agregarProducto(){
         this.productService.addProduct(this.producto).subscribe(data => {
             console.log(data);
         });
+    }
+
+    public cancelar(){
+        console.log("seleccionado: "+this.seleccionado);
+        console.log(this.producto)
     }
 
 }
