@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  providers: [AddProductCartService]
+  providers: [AddProductCartService],
+  styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
 
@@ -18,6 +19,7 @@ export class CartComponent implements OnInit {
   id : String = "";
   active : number = 0;
   activeTable: number = 0;
+  modal : number =0;
  
   name: String = "";
   descrip : String = "";
@@ -109,9 +111,9 @@ export class CartComponent implements OnInit {
   }
 
 
-  listProducts(){
+  ansAddProduct(){
 
-
+    this.modal = 1;
   }
 
 }

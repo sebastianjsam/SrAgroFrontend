@@ -57,7 +57,7 @@
   
                                 </div>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button type="button" id="addCar" class="btn btn-primary">
+                                <button type="button" id="addCar" (click)="ansAddProduct()"  class="btn btn-primary">
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" d="M8.5 5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 .5-.5z" />
                                         <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0v-2z" />
@@ -216,4 +216,14 @@
 </div>
 
 
+<div *ngIf = "modal==1">
+    <div  class="window-notice" id="window-notice">
+        <div class="content">
+            <h1>Mensaje</h1>
+            <div class="content-text"> Producto añadido exitosamente 
+
+            <div class="content-buttons"><a  href="/cart/3" id="close-button">Aceptar</a></div>
+        </div>
+      </div>    
+</div>
 

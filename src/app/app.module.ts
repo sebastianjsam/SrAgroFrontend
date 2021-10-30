@@ -13,7 +13,11 @@ import { HomeComponent } from './componentes/Home/Home.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CartComponent } from './componentes/cart/cart.component';
-import {AddProductCartService} from './servicios/addProductCart.service'
+import {AddProductCartService} from './servicios/addProductCart.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+// ngBootstrap
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -34,6 +38,8 @@ import {AddProductCartService} from './servicios/addProductCart.service'
     HttpClientModule,
     CommonModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NgbModule,
  
   ],
   providers: [AddProductCartService],
