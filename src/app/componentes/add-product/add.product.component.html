@@ -1,15 +1,31 @@
 <div class="container">
 
-    <form class="custom-form-add-product" method="post">
+    <form class="custom-form-add-product mt-5" method="post">
         <div class="row align-items-start">
 
             <div class="col">
-                <h1>Productos en lista</h1>
-                <hr>
-                <p>No existen productos en lista</p>
+                <div class="row">
+                    <h3>Listado de productos</h3>
+                    <br>
+                    <table *ngIf="farmersProducts.length > 0" class="table mt-4" >
+                        <thead>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let producto of farmersProducts">
+                                <td>{{producto.name}}</td>
+                                <td>{{producto.price}}</td>
+                                <td>{{producto.quantity}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p *ngIf="farmersProducts.length == 0">No hay productos añadidos</p>
+                </div>
             </div>
             <div class="col">
-                <h1>Añadir producto</h1>
+                <h3>Añadir producto</h3>
                 <hr>
                 <input type="text" [(ngModel)]="producto.cod_product" name="codProducto" placeholder="Código del producto"
                     required="required" />

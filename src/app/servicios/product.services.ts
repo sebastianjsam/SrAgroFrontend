@@ -10,8 +10,8 @@ import { Product } from "../componentes/DTOS/productDTO";
 export class ProductService{
 
     constructor(private http: HttpClient){}
-    addProduct(product: Product): Observable<any>{
-        return this.http.post("https://localhost:44370/AddProducto", product);
+    addProduct(product: Product, email: any): Observable<any>{
+        return this.http.post("https://localhost:44370/AddProducto?idFarmer="+email, product );
     }
     
 }

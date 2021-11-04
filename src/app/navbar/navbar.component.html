@@ -22,6 +22,12 @@
             </li>
           </div>
 
+          <div *ngIf = "login==='AGRICULTOR'">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/add-product">Añadir producto</a>
+            </li>
+          </div>
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Categorias
