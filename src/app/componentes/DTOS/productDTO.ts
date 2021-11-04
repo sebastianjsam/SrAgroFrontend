@@ -7,7 +7,7 @@ export class Product{
     public name: string = "";
     public despcrition: string = "";
     public price: number = 0;
-    public quanty: number = 0;
+    public quantity: number = 0;
     public discount: number = 0;
     public iva: number = 0;
     public references: References = new References();
