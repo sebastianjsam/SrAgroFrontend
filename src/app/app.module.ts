@@ -11,13 +11,18 @@ import { RegisterUser } from './componentes/register-user/register.user';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './componentes/Home/Home.component';
 import { RouterModule } from '@angular/router';
+import { AddProduct } from './componentes/add-product/add.product.component';
+//import {TarjetaProductoComponent} from './tarjeta-producto/tarjeta-producto.component';
+import { SearchProductComponent } from './componentes/SearchProduct/SearchProduct/SearchProduct.component';
+
+import { TarjetaProductoComponent } from './componentes/tarjeta-producto/tarjeta-producto.component';
+
 import { CommonModule } from '@angular/common';
 import { CartComponent } from './componentes/cart/cart.component';
 import {AddProductCartService} from './servicios/addProductCart.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
-// ngBootstrap
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
@@ -26,21 +31,25 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     LoginUser,
     RegisterUser,
     NavbarComponent,
-    HomeComponent, 
+    HomeComponent,
+    AddProduct,
+    SearchProductComponent,
+    TarjetaProductoComponent,
     CartComponent,
 
-    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+
     CommonModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgbModule,
- 
+
+
   ],
   providers: [AddProductCartService],
   bootstrap: [AppComponent]

@@ -1,0 +1,66 @@
+<div class="container">
+
+    <form class="custom-form-add-product mt-5" method="post">
+        <div class="row align-items-start">
+
+            <div class="col">
+                <div class="row">
+                    <h3>Listado de productos</h3>
+                    <br>
+                    <table *ngIf="farmersProducts.length > 0" class="table mt-4" >
+                        <thead>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let producto of farmersProducts">
+                                <td>{{producto.name}}</td>
+                                <td>{{producto.price}}</td>
+                                <td>{{producto.quantity}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p *ngIf="farmersProducts.length == 0">No hay productos añadidos</p>
+                </div>
+            </div>
+            <div class="col">
+                <h3>Añadir producto</h3>
+                <hr>
+                <input type="text" [(ngModel)]="producto.cod_product" name="codProducto" placeholder="Código del producto"
+                    required="required" />
+                <input type="text" [(ngModel)]="producto.name" name="nompreProducto" placeholder="Nombre del producto"
+                    required="required" />
+                <input type="text" [(ngModel)]="producto.price" name="precio" placeholder="Precio del producto por kilo"
+                    required="required" />
+                <input type="text" [(ngModel)]="producto.quantity" name="cantidadKilos"
+                    placeholder="Cantidad de producto en kilogramos" required="required" />
+                <select name="categoria" [(ngModel)]="seleccionado" (ngModelChange)="guardarCategoria()">
+                    <option  [value]="item.name" *ngFor="let item of categories">{{item.name}}</option>
+                </select>
+
+                <input type="text" [(ngModel)]="producto.references.cod_ref" name="cod_referencia" placeholder="Código de referencia" required="required" />
+                <input type="text" [(ngModel)]="producto.references.name" name="variedad" placeholder="Variedad" required="required" />
+                <input type="date" [(ngModel)]="producto.references.entry_date" name="FechaCosecha" placeholder="Fecha de cosecha"
+                    required="required" />
+                <input type="date" [(ngModel)]="producto.references.expiration_date" name="fechaExpiracion"
+                    placeholder="Fecha de expiración" required="required" />
+                <input type="text" [(ngModel)]="producto.despcrition" name="descripcion" placeholder="Descripcion"
+                    required="required" />
+                <input type="file"  multiple>
+                <div class="row align-items-start">
+                    <div class="col">
+                        <button type="submit" (click)="agregarProducto()">Añadir</button>
+                    </div>
+                    <div class="col">
+                        <button type="submit" (click)="cancelar()">Cancelar</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </form>
+
+
+</div>

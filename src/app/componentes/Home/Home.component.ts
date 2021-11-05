@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  role = localStorage.getItem("role");
+  user = localStorage.getItem("user");
   constructor() { }
 
   ngOnInit() {
