@@ -1,0 +1,26 @@
+.mat-card {
+  margin-bottom: 10px !important;
+}
+
+img {
+  max-width: 30vh;
+  max-height: 30vh;
+}
+.contenedor-imagen {
+  border: thistle;
+  padding: 2vh;
+  display: inline-block;
+}
+
+.button-Comprar {
+  position:  absolute;
+  top: 10vh;
+  left: 120vh;
+}
+
+.card-Product {
+  position:  relative;
+ height: 35vh;
+ width: 150vh;
+/*background-color: tomato;*/
+}

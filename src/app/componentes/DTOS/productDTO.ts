@@ -12,4 +12,5 @@ export class Product{
     public iva: number = 0;
     public references: References = new References();
     public category: Category = new Category();
+    public image_url: string="";
 }
