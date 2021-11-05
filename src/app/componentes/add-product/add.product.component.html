@@ -22,7 +22,7 @@
                     placeholder="Cantidad de producto en kilogramos" required="required" />
 
                 <label for="">Categoría</label>
-                <select name="categoria" [(ngModel)]="seleccionado" (ngModelChange)="guardarCategoria()">
+                <select  name="categoria" [(ngModel)]="seleccionado" (ngModelChange)="guardarCategoria()">
                     <option  [value]="item.name" *ngFor="let item of categories">{{item.name}}</option>
                 </select>
 
