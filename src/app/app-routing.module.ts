@@ -16,7 +16,8 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'Search', component: SearchProductComponent},
   {path: 'Search/:search', component: SearchProductComponent},
-  {path: 'cart', component: CartComponent, canActivate: [CanActivateGuard]}
+  {path: 'cart', component: CartComponent, canActivate: [CanActivateGuard]},
+  {path: 'cart/:id', component: CartComponent, canActivate: [CanActivateGuard]},
   {path: 'add-product', component: AddProduct, canActivate: [CanActivateGuard]}
 ];
 

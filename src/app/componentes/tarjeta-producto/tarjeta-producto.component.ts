@@ -16,7 +16,7 @@ export class TarjetaProductoComponent implements OnInit {
     const baseUrl = environment.baseUrl;
     //return "assets/fruta/banana.png";
     //return `${baseUrl}/foto_producto/${this.producto.foto}`;
-    if (ruta == "") {
+    if (ruta == "" || ruta=="http:") {
       return 'assets/error.png';
     } else {
       return ruta;
@@ -24,6 +24,7 @@ export class TarjetaProductoComponent implements OnInit {
   }
 
   public detalles() {
-    this.router.navigate(['/producto/detalle', this.producto.id]);
+    console.log(this.producto);
+    this.router.navigate(['/cart/'+ this.producto.cod_product]);
   }
 }
