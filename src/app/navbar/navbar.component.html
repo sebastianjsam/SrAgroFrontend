@@ -35,21 +35,21 @@
           </li>
         </ul>
         <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <input class="form-control me-2" type="search" [(ngModel)]="textoDeInput " name="texto" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="button" [routerLink]="['/Search',textoDeInput]" onclick="">Search</button>
         </form>
-    
-        
+
+
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          
+
           <div *ngIf = "login==='COMPRADOR' || login==='AGRICULTOR'; else loggedOut">
 
             <small><strong>{{nameUser}}</strong></small>
             &nbsp;&nbsp;
             <button class="btn btn-primary" routerLink="/home" (click)="loginOut()" type="submit">Salir</button>
-      
+
           </div>
           <ng-template #loggedOut>
             <a class="nav-link" href="#"  style="color: green;" routerLink="/login"><img src="https://img.icons8.com/ios-glyphs/30/000000/login-rounded-right--v1.png"/>Ingresar</a>
@@ -58,6 +58,6 @@
               </a>
           </ng-template>
       </div>
-      
+
     </div>
   </nav>

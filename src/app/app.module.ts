@@ -12,6 +12,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './componentes/Home/Home.component';
 import { RouterModule } from '@angular/router';
 import { AddProduct } from './componentes/add-product/add.product.component';
+//import {TarjetaProductoComponent} from './tarjeta-producto/tarjeta-producto.component';
+import { SearchProductComponent } from './componentes/SearchProduct/SearchProduct/SearchProduct.component';
+
+import { TarjetaProductoComponent } from './componentes/tarjeta-producto/tarjeta-producto.component';
+
+
 
 @NgModule({
   declarations: [
@@ -19,15 +25,18 @@ import { AddProduct } from './componentes/add-product/add.product.component';
     LoginUser,
     RegisterUser,
     NavbarComponent,
-    HomeComponent, 
-    AddProduct
-    
+    HomeComponent,
+    AddProduct,
+    SearchProductComponent,
+    TarjetaProductoComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,11 +6,14 @@ import { HomeComponent } from './componentes/Home/Home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CartComponent } from './componentes/cart/cart.component';
 import { CanActivateGuard } from './can-activate.guard';
+import { SearchProductComponent } from './componentes/SearchProduct/SearchProduct/SearchProduct.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginUser},
   {path: 'register', component: RegisterUser},
   {path: 'home', component: HomeComponent},
+  {path: 'Search', component: SearchProductComponent},
+  {path: 'Search/:search', component: SearchProductComponent},
   {path: 'cart', component: CartComponent, canActivate: [CanActivateGuard]}
 ];
 
