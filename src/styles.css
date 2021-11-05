@@ -13,7 +13,7 @@ h1 {
   min-width: 300px;
   max-width: 60%;
   margin: 0px auto;
-  background: rgba(255, 255, 255, 0.15);
+  background: #20c597;
   padding: 2rem 3rem;
   margin: auto;
   border-radius: 2.5rem;
@@ -41,7 +41,7 @@ h1 {
   font-size: 0.875rem;
   color: #ffffff;
   font-weight: bold;
-  background-color: #bcd8c1;
+  background-color: #60d1b1;
   width: 100%;
   display: block;
   padding: 0.875rem 1rem;
