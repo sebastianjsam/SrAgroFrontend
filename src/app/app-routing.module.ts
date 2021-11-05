@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CartComponent } from './componentes/cart/cart.component';
 import { CanActivateGuard } from './can-activate.guard';
 import { SearchProductComponent } from './componentes/SearchProduct/SearchProduct/SearchProduct.component';
+import { AddProduct } from './componentes/add-product/add.product.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginUser},
@@ -15,6 +16,8 @@ const routes: Routes = [
   {path: 'Search', component: SearchProductComponent},
   {path: 'Search/:search', component: SearchProductComponent},
   {path: 'cart', component: CartComponent, canActivate: [CanActivateGuard]}
+  {path: 'cart', component: CartComponent, canActivate: [CanActivateGuard]},
+  {path: 'add-product', component: AddProduct, canActivate: [CanActivateGuard]}
 ];
 
 @NgModule({

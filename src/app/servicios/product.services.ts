@@ -10,11 +10,8 @@ import { Product } from "../componentes/DTOS/productDTO";
 export class ProductService{
 
     constructor(private http: HttpClient){}
-    addProduct(product: Product): Observable<any>{
-      const headers = { 'content-type': 'application/json'}
-      const body=JSON.stringify(product);
-      console.log(body)
-        return this.http.post("https://localhost:44370/AddProducto", body,{'headers':headers});
+    addProduct(product: Product, email: any): Observable<any>{
+        return this.http.post("https://localhost:44370/AddProducto?idFarmer="+email, product );
     }
 
 
