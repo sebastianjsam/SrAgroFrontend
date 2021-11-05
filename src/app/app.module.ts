@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import { LoginUser } from './componentes/login-user/login.user';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterUser } from './componentes/register-user/register.user';
@@ -17,6 +17,12 @@ import { SearchProductComponent } from './componentes/SearchProduct/SearchProduc
 
 import { TarjetaProductoComponent } from './componentes/tarjeta-producto/tarjeta-producto.component';
 
+import { CommonModule } from '@angular/common';
+import { CartComponent } from './componentes/cart/cart.component';
+import {AddProductCartService} from './servicios/addProductCart.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+
 
 
 @NgModule({
@@ -28,7 +34,9 @@ import { TarjetaProductoComponent } from './componentes/tarjeta-producto/tarjeta
     HomeComponent,
     AddProduct,
     SearchProductComponent,
-    TarjetaProductoComponent
+    TarjetaProductoComponent,
+    CartComponent,
+
 
   ],
   imports: [
@@ -37,8 +45,13 @@ import { TarjetaProductoComponent } from './componentes/tarjeta-producto/tarjeta
     FormsModule,
     HttpClientModule,
 
+    CommonModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+
+
   ],
-  providers: [],
+  providers: [AddProductCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

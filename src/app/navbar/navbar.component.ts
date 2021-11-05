@@ -44,4 +44,14 @@ export class NavbarComponent implements OnInit {
 
 
 
+cart(){
+  this.router.navigate(['/cart/3'])
+  .then(() => {
+      window.location.reload();
+  });
+
+
+}
+
+
 }
