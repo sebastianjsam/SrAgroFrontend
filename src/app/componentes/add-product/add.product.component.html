@@ -6,9 +6,6 @@
             <div class="col">
                 <h3>Añadir producto</h3>
                 <hr>
-                <input type="text" [(ngModel)]="producto.cod_product" name="codProducto" placeholder="Código del producto"
-                    required="required" />
-
                 <label for="">Nombre del producto</label>
                 <input type="text" [(ngModel)]="producto.name" name="nompreProducto" placeholder="Nombre del producto"
                     required="required" />
@@ -25,8 +22,6 @@
                 <select  name="categoria" [(ngModel)]="seleccionado" (ngModelChange)="guardarCategoria()">
                     <option  [value]="item.name" *ngFor="let item of categories">{{item.name}}</option>
                 </select>
-
-                <input type="text" [(ngModel)]="producto.references.cod_ref" name="cod_referencia" placeholder="Código de referencia" required="required" />
                 
                 <label for="">Variedad</label>
                 <input type="text" [(ngModel)]="producto.references.name" name="variedad" placeholder="Variedad" required="required" />
