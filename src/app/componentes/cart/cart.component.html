@@ -11,11 +11,11 @@
 
                     <div class="container">
                         <br />
-                        Cod.<label id="codProduct"><strong>
+                       <!-- Cod.<label id="codProduct"><strong>
                             {{id}}
                         </strong>
                         </label>
-                        <img src="../../../assets/images/CartPhoto.jpg" class="card-img" alt="...">
+                      --><img src="../../../assets/images/CartPhoto.jpg" class="card-img" alt="...">
                     </div>
                 </div>
                 <div class="col-7">
@@ -117,7 +117,7 @@
     <caption>Listado de productos añadidos</caption>
       <thead>
         <tr class="table-warning">
-          <th scope="col">Cod.</th>
+          <!--<th scope="col">Cod.</th>-->
           <th scope="col">Nombre</th>
           <th scope="col">Cantidad (Kg)</th>
           <th scope="col">Subtotal</th>
@@ -127,7 +127,7 @@
 
 
           <tr *ngFor="let item of dataAns">
-              <th scope="row">{{item.cod_product}}</th>
+              <!--<th scope="row">{{item.cod_product}}</th>-->
               <td>{{item.name}}</td>
               <td>{{item.quantity}}</td>
               <td>{{item.subtotal}}</td>
@@ -169,7 +169,7 @@
             <table  class="table table-sm">
                 <thead>
                     <tr class="table-success">
-                      <th scope="col">Cod.</th>
+                      <!--<th scope="col">Cod.</th>-->
                       <th scope="col">Nombre</th>
                       <th scope="col">Precio (Unidad)</th>
                       <th scope="col">Cantidad (Kg)</th>
@@ -181,7 +181,7 @@
 
 
                     <tr *ngFor="let item of dataTableCart">
-                        <th scope="row">{{item.cod_product}}</th>
+                        <!--<th scope="row">{{item.cod_product}}</th>-->
                         <td>{{item.name_product}}</td>
                         <td>{{item.price}}</td>
                         <td>{{item.quantity}}</td>
