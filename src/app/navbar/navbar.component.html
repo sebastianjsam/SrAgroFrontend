@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-expand-sm navbar-collapse-md navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">SrAgro</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,13 +65,13 @@
 
         </div>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
 
           <div *ngIf = "login==='COMPRADOR' || login==='AGRICULTOR' || login==='CUSTOMER'; else loggedOut">
 
             <small><strong>{{nameUser}}</strong></small>
             &nbsp;&nbsp;
-            <button class="btn btn-primary" routerLink="/home" (click)="loginOut()" type="submit">Salir</button>
+            <button class="btn btn-outline-success" routerLink="/home" (click)="loginOut()" type="submit">Salir</button>
 
           </div>
           <ng-template #loggedOut>
