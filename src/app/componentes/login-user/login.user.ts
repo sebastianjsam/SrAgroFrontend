@@ -32,13 +32,15 @@ import { windowCount } from "rxjs/operators";
           password: this.password
         }
         this.loginUserService.validateUser(user.username, user.password).subscribe(data =>{
-          console.log(data);
+          localStorage.setItem("role", data.role);
+          localStorage.setItem("user", data.user);
+          localStorage.setItem("login", "OK");
+          window.location.replace("/home");
+          //alert("Login"+data.role)
         });
 
-        window.location.replace("/home");
 
     }
 
-  
+
   }
- 

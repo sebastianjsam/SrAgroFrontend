@@ -12,12 +12,6 @@ export class LoginUserService{
 
 
   validateUser(user: string, password: string): Observable<any>{
-    return this.http.get("https://localhost:44370/Login?"+"username="+user+"&password="+password).pipe(
-      map((response : any) =>{
-        localStorage.setItem("role", response.role);
-        localStorage.setItem("user", response.user);
-        localStorage.setItem("login", "OK");
-      })
-    );
+    return this.http.get("https://localhost:44370/Login?"+"username="+user+"&password="+password);
   }
 }
