@@ -1,194 +1,76 @@
 <div class="Container">
   <div class="row">
     <div class="col-md-10 offset-md-9">
-     <!--<div class="dropdown">
-        <a>Ordenar por:</a>
-
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-          data-bs-toggle="dropdown" aria-expanded="false">
-          Menor precio
-        </a>
-
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <li><a class="dropdown-item" href="#">Mayor precio</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </div>-->
-      <a>Ordenar por:  </a>
-      <select class="btn btn-checkbox " name="miselect" [(ngModel)]="seleccionado" (ngModelChange)="validarSeleccion()">
-        <option [value]="item" *ngFor="let item of Order">{{item}}</option>
+      <a>Ordenar por: </a>
+      <select class="btn btn-checkbox" name="miselect" [(ngModel)]="seleccionado" (ngModelChange)="validarSeleccion()">
+        <option [value]="item" *ngFor="let item of Order">{{ item }}</option>
       </select>
-
-
     </div>
     <div class="row">
-      <!--<div class="col-md-2">
-        <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
-          <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-            <svg class="bi me-2" width="30" height="24">
-              <use xlink:href="#bootstrap" />
-            </svg>
-            <span class="fs-5 fw-semibold">{{search}}</span>
-          </a>
-          <ul class="list-unstyled ps-0">
-            <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                data-bs-target="#home-collapse" aria-expanded="true">
-                Categoria
-              </button>
-              <div class="collapse show" id="home-collapse">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-dark rounded">Fruta</a></li>
-                  <li><a href="#" class="link-dark rounded">Verdudas</a></li>
-                  <li><a href="#" class="link-dark rounded">Hortalizas</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                data-bs-target="#dashboard-collapse" aria-expanded="false">
-                Tipo de envio
-              </button>
-              <div class="collapse" id="dashboard-collapse">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 ">
-
-                  <li><a href="#" class="link-dark rounded">Gratis</a></li>
-                  <li><a href="#" class="link-dark rounded">Con valor</a></li>
-
-                </ul>
-              </div>
-            </li>
-            <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                data-bs-target="#orders-collapse" aria-expanded="false">
-                Orders
-              </button>
-              <div class="collapse" id="orders-collapse">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-dark rounded">New</a></li>
-                  <li><a href="#" class="link-dark rounded">Processed</a></li>
-                  <li><a href="#" class="link-dark rounded">Shipped</a></li>
-                  <li><a href="#" class="link-dark rounded">Returned</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="border-top my-3"></li>
-            <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                data-bs-target="#account-collapse" aria-expanded="false">
-                Account
-              </button>
-              <div class="collapse" id="account-collapse">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-dark rounded">New...</a></li>
-                  <li><a href="#" class="link-dark rounded">Profile</a></li>
-                  <li><a href="#" class="link-dark rounded">Settings</a></li>
-                  <li><a href="#" class="link-dark rounded">Sign out</a></li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>-->
-      <!--Otra forma de construir el filtrado para facilitar el la captura de datos-->
-
-      <div class="col-md-2" style="position: relative; left: 5vh;">
+      <div class="col-md-2" style="position: relative; left: 5vh">
         <h4>Filtrar por</h4>
         <div class="filterbox">
           <h5>Categoria</h5>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" onclick="filterSelection('ageChild')" id="ageChild"
-              name="edad">
-            <label class="form-check-label" for="ageChild">Fruta</label>
+          <div class="form-check" *ngFor="let category of lstcategorys">
+            <input type="radio" class="form-check-input" (click)="selecionarCategory(category.cod_category)"
+              id="{{ category.cod_category }}" name="category" />
+            <label class="form-check-label" for="typeCategory">{{
+              category.name
+              }}</label>
           </div>
-
           <div class="form-check">
-            <input type="radio" class="form-check-input" onclick="filterSelection('ageAdult')" id="ageAdult"
-              name="edad">
-            <label class="form-check-label" for="ageAdult">Verdura</label>
-          </div>
-
-          <div class="form-check">
-            <input type="radio" class="form-check-input" onclick="filterSelection('ageAll')" id="ageAll" name="edad">
-            <label class="form-check-label" for="ageAll">Hortaliza</label>
+            <input type="radio" class="form-check-input" (click)="selecionarCategory('-1')" id="-1" name="category" />
+            <label class="form-check-label" for="typeCategory">Mostrar todo</label>
           </div>
         </div>
 
         <div class="filterbox">
           <h5>Precio</h5>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" onclick="filterSelection('price100')" id="price100"
-              name="price">
-            <label class="form-check-label" for="price100">menos de 10000</label>
-          </div>
 
-          <div class="form-check">
-            <input type="radio" class="form-check-input" onclick="filterSelection('price200')" id="price200"
-              name="price">
-            <label class="form-check-label" for="price200">menos de 20000</label>
-          </div>
-
-          <div class="form-check">
-            <input type="radio" class="form-check-input" onclick="filterSelection('price300')" id="price300"
-              name="price">
-            <label class="form-check-label" for="price300">menos de 30000</label>
-          </div>
-
-          <div class="form-check">
-            <input type="radio" class="form-check-input" onclick="filterSelection('priceMore')" id="priceMore"
-              name="price">
-            <label class="form-check-label" for="priceMore">más de 30000</label>
-          </div>
-
-          <div class="form-check">
-            <input type="radio" class="form-check-input" onclick="filterSelection('priceAll')" id="priceAll"
-              name="price">
-            <label class="form-check-label" for="mate">Mostrar todo</label>
+          <div class="form-check" *ngFor="let priceTemp of lstPrice">
+            <input type="radio" class="form-check-input" (click)="selecionarPrice(priceTemp)" id="typePrice"
+              name="typePrice" />
+            <div *ngIf="equals(priceTemp, '-1') === true; else templateQuantity">
+              <label class="form-check-label" for="typePrice">Mostrar todo</label>
+            </div>
+            <ng-template #templateQuantity>
+              <label class="form-check-label" for="typePrice">Menor a {{ priceTemp }}</label>
+            </ng-template>
           </div>
         </div>
 
         <div class="filterbox">
           <h5>Cantidad</h5>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" onclick="filterSelection('typeMountain')" id="typeMountain"
-              name="type">
-            <label class="form-check-label" for="typeMountain">5</label>
-          </div>
-
-          <div class="form-check">
-            <input type="radio" class="form-check-input" onclick="filterSelection('typeStreet')" id="typeStreet"
-              name="type">
-            <label class="form-check-label" for="typeStreet">10</label>
-          </div>
-
-          <div class="form-check">
-            <input type="radio" class="form-check-input" onclick="filterSelection('typeStatic')" id="typeStatic"
-              name="type">
-            <label class="form-check-label" for="typeStatic">15</label>
-          </div>
-          <div class="form-check">
-            <input type="radio" class="form-check-input" onclick="filterSelection('typeAll')" id="typeAll" name="type">
-            <label class="form-check-label" for="typeAll">Mostrar todo</label>
+          <div class="form-check" *ngFor="let quantityT of lstquantity">
+            <input type="radio" class="form-check-input" (click)="selecionarquantity(quantityT)" id="typeQuantity"
+              name="typeQuantity" />
+            <div *ngIf="equals(quantityT, '-1') === true; else templateQuantity">
+              <label class="form-check-label" for="typeQuantity">Mostrar todo</label>
+            </div>
+            <ng-template #templateQuantity>
+              <label class="form-check-label" for="typeQuantity">Menor a {{ quantityT }}</label>
+            </ng-template>
           </div>
         </div>
 
         <div class="filterbox">
           <h5>Más</h5>
           <div class="form-check">
-            <input type="radio" class="form-check-input" onclick="filterSelection('more')" id="more" name="more">
+            <input type="radio" class="form-check-input" id="more" name="more" />
             <label class="form-check-label" for="more">Complementos</label>
           </div>
 
           <div class="form-check">
-            <input type="radio" class="form-check-input" onclick="filterSelection('moreAll')" id="moreAll" name="more">
+            <input type="radio" class="form-check-input" id="moreAll" name="more" />
             <label class="form-check-label" for="moreAll">Mostrar todo</label>
           </div>
         </div>
 
         <div>
-          <br>
-          <button style="text-align: center;position: relative; left: 10vh;" (click)="Filtrar()">Aplicar Filtrado</button>
+          <br />
+          <button style="text-align: center; position: relative; left: 2vh" (click)="Filtrar()">
+            Aplicar Filtrado
+          </button>
         </div>
       </div>
 
@@ -199,5 +81,5 @@
         </div>
       </div>
     </div>
-
   </div>
+</div>

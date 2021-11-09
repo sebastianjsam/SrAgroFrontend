@@ -22,12 +22,12 @@ export class ProductService{
         return  this.http.get("https://localhost:44370/searchProduct?searchName="+search,{'headers':headers});
     }
 
-    public  FilterProduct(search:string):Observable<any>{
+    public  FilterProduct(search:string,category:string,price:string,quantity:string):Observable<any>{
       const headers = { 'content-type': 'application/json'}
       //const body=JSON.stringify(product);
-      console.log("Filtrado : "+search)
-      search="b";
-        return  this.http.get("https://localhost:44370/filterProduct?searchName="+search+"&category=1&price=100&quantity=100",{'headers':headers});
+      console.log("Filtrado : "+search);
+      console.log("https://localhost:44370/filterProduct?searchName="+search+"&category="+category+"&price="+price+"&quantity="+quantity);
+        return  this.http.get("https://localhost:44370/filterProduct?searchName="+search+"&category="+category+"&price="+price+"&quantity="+quantity,{'headers':headers});
     }
 
 }

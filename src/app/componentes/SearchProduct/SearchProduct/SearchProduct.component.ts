@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { CategoriesService } from 'src/app/servicios/categories.services';
 
 import { ProductService } from 'src/app/servicios/product.services';
 import { environment } from 'src/environments/environment';
+import { Category } from '../../DTOS/categoryDTO';
 import { Product } from '../../DTOS/productDTO';
 
 @Component({
@@ -11,18 +13,29 @@ import { Product } from '../../DTOS/productDTO';
   styleUrls: ['./SearchProduct.component.css'],
 })
 export class SearchProductComponent implements OnInit {
+  //variables para el filtrado de datos
   @Input() dato: string = '';
-
+  codCategoSelecionado: string = '-1';
+  priceSelecionado: string = '-1';
+  quantitySelecionado: string = '-1';
+  //fin filtrado
   //Ordenar por
   Order: string[] = ['Descendente', 'Ascendente'];
   seleccionado: string = 'Descendente';
   seleccionNum: number = 1;
   //-----
 
-  public productos = [];
+  productos :Product[]=[];
+  lstcategorys: Category[] = [];
+
+  //cantidades
+  lstquantity:string[]=['5', '10','15','-1'];
+  lstPrice:string[]=['10000', '20000','30000','50000','-1'];;
+  quantityTemporal:string="";
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private categoryService: CategoriesService
   ) {}
 
   public resolverFoto(foto: any) {
@@ -30,6 +43,7 @@ export class SearchProductComponent implements OnInit {
     return "'assets/1.jpg'";
     //return `${baseUrl}/foto_producto/${foto}`;
   }
+
   validarSeleccion() {
     switch (this.seleccionado) {
       case 'Descendente':
@@ -53,14 +67,46 @@ export class SearchProductComponent implements OnInit {
         //console.table(data);
       });
     });
+    this.ConsultarCategory();
+    console.log('----------' + this.lstcategorys);
   }
 
+  async Filtrar() {
+    this.productService
+      .FilterProduct(
+        this.dato,
+        this.codCategoSelecionado,
+        this.priceSelecionado,
+        this.quantitySelecionado
+      )
+      .subscribe((data) => {
+        this.productos = data;
+        //console.table(data);
+      });
+  }
 
-
-  async Filtrar(){
-    this.productService.FilterProduct(this.dato).subscribe((data) => {
-      this.productos = data;
-      //console.table(data);
+  async ConsultarCategory() {
+    this.categoryService.listCategories().subscribe((data) => {
+      this.lstcategorys = data;
+      console.table(data);
     });
+  }
+
+  public selecionarCategory(categoryCode: string) {
+    console.log('Selecionar Categoria ' + categoryCode);
+    this.codCategoSelecionado = categoryCode;
+  }
+  public selecionarPrice(priceSelecionado: string) {
+    console.log('Selecionar Categoria ' + priceSelecionado);
+    this.priceSelecionado = priceSelecionado;
+  }
+
+  public selecionarquantity(quantitySelecionado: string) {
+    console.log('Selecionar Categoria ' + quantitySelecionado);
+    this.quantitySelecionado = quantitySelecionado;
+  }
+
+  public equals(dato:any,dato2:any){
+    return dato==dato2;
   }
 }
