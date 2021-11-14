@@ -18,7 +18,8 @@ const routes: Routes = [
   {path: 'Search/:search', component: SearchProductComponent},
   {path: 'cart', component: CartComponent, canActivate: [CanActivateGuard]},
   {path: 'cart/:id', component: CartComponent, canActivate: [CanActivateGuard]},
-  {path: 'add-product', component: AddProduct, canActivate: [CanActivateGuard]}
+  {path: 'add-product', component: AddProduct, canActivate: [CanActivateGuard]},
+  
 ];
 
 @NgModule({
