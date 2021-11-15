@@ -22,31 +22,40 @@
                       </a>
                       
                       <div class="custom-control custom-radio">
-                        <input type="radio" id="envio_01" name="send_method" class="custom-control-input" checked >
+                        <input [(ngModel)]="send_method" value="local" type="radio" id="envio_01" name="send_method" class="custom-control-input" checked>
                         <label class="custom-control-label" for="envio_01">
-                         <strong>Envió local y área metropolitana:&nbsp;&nbsp;</strong>  (NO ES DOMICILIO) Servicio de mensajería 
+                         <strong>Envió local y áreas aledañas a Caldas:&nbsp;&nbsp;</strong>  (NO ES DOMICILIO) Servicio de mensajería 
                           por compañía de transportes: Tiempo de entrega de 1 a 6 días hábiles. 
-                          Aplica para los municipios de: Medellín, Bello, Itagüí, Envigado, Caldas, 
-                          Copacabana, La Estrella, Girardota, Sabaneta, Barbosa ( $ 20.600)
+                          Aplica para los municipios de: Medellín, Manizales, Armenia, Pereira, 
+                          Municipios aledaños a Caldas, ($ 25.600)
 
                         </label>
                       </div>
 
                       <div class="custom-control custom-radio">
-                        <input type="radio" id="envio_02" name="send_method" class="custom-control-input">
+                        <input [(ngModel)]="send_method" value="nacional" type="radio" id="envio_02" name="send_method" class="custom-control-input">
                         <label class="custom-control-label" for="envio_02">
                          <strong>Envio Nacional:&nbsp;&nbsp;</strong>  Servicio de mensajería por compañía de transportes - 
-                          Tiempo de entrega de 5 a 9 días hábiles para ciudades principales y de 5-9 días hábiles 
-                          para ciudades aledañas. ( $ 25.000)
+                          Tiempo de entrega de 5 a 9 días hábiles para ciudades principales y de 7-12 días hábiles 
+                          para ciudades aledañas. ( $ 45.000)
                         
                         </label>
                       </div>
+
+                      <div class="row">
+                        <div class="col-10"></div>
+                        <div class="col-2">
+                          <button type="button" (click)="totalPay()" class="btn btn-success">Guardar</button>
+                        </div>
+                      </div>
+
+
 
                     </div>
                     
                     <div class="col-2">
                       <div class="alert alert-secondary" role="alert">            
-                        <strong>Pagar:</strong>
+                        <strong>Pagar envio:</strong>
                         <br><br>
                         {{value_send}}
                         <br><br><br>
@@ -71,7 +80,7 @@
                       Seleccionar método de pago:
                     </a>
                     <div class="custom-control custom-radio">
-                      <input type="radio" id="pago_01" name="pay_method" class="custom-control-input" checked>
+                      <input [(ngModel)]="pay_method" value="bank"  name="pay_method" type="radio" id="pago_01"  class="custom-control-input" checked>
                       <label class="custom-control-label" for="pago_01">
                        <strong>Consignación Nacional Bancolombia:&nbsp;&nbsp;</strong>Cuenta de ahorros número <strong style="color: red;">#006 989 151 01</strong> 
                        de SrAgro S.A.S Nit: <strong style="color: red;">100.044.874</strong> Si hace consignación en una oficina fuera de Manizales, 
@@ -81,7 +90,7 @@
                     </div>
 
                     <div class="custom-control custom-radio">
-                      <input type="radio" id="pago_02" name="pay_method" class="custom-control-input">
+                      <input [(ngModel)]="pay_method" value="transf" name="pay_method" type="radio" id="pago_02"  class="custom-control-input">
                       <label class="custom-control-label" for="pago_02">
                        <strong>Transferencia electrónica:&nbsp;&nbsp;</strong> 
                         Bancolombia Transferencia electrónica Bancolombia ahorros <strong style="color: red;">#006 989 151 01</strong> de SrAgro S.A.S 
@@ -91,9 +100,7 @@
                     </div>
                   </div>
 
-                </div>
-
-                
+                </div>               
               
               </li>
               <li class="list-group-item">
@@ -111,13 +118,13 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"></span>
                   </div>
-                  <textarea class="form-control" placeholder="Ingresar comentario" aria-label="With textarea"></textarea>
+                  <textarea [(ngModel)]="descript_user" name="descript_user" class="form-control" placeholder="Ingresar comentario" aria-label="With textarea"></textarea>
                 </div>
 
 
 
                 <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                  <input [(ngModel)]="optionTerms" value="optionTerms" type="checkbox" class="custom-control-input" id="customSwitch1">
                   <label class="custom-control-label" for="customSwitch1">Términos y condiciones</label>
                 </div>
 
@@ -148,17 +155,17 @@
 
   <div class="form-group">
     <label for="inputAddress">Dirección</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="Lugar a recibir">
+    <input  [(ngModel)]="address_user" name="address_user" type="text" class="form-control" id="inputAddress" placeholder="Lugar a recibir">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Ciudad</label>
-      <input type="text" class="form-control" id="inputCity" placeholder="Manizales, Caldas">
+      <input [(ngModel)]="city_user" name="city_user" type="text" class="form-control" id="inputCity" placeholder="Manizales, Caldas">
     </div>
  
     <div class="form-group col-md-6">
-      <label for="inputZip">Teléfono</label>
-      <input type="text" class="form-control" id="inputZip" placeholder="celular">
+      <label for="inputZip">Número de contacto</label>
+      <input [(ngModel)]="phone_user" name="phone_user" type="text" class="form-control" id="inputZip" placeholder="celular">
     </div>
   </div>
 
