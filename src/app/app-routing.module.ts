@@ -8,7 +8,7 @@ import { CartComponent } from './componentes/cart/cart.component';
 import { CanActivateGuard } from './can-activate.guard';
 import { SearchProductComponent } from './componentes/SearchProduct/SearchProduct/SearchProduct.component';
 import { AddProduct } from './componentes/add-product/add.product.component';
-
+import { GetOrdersCustomerComponent } from './componentes/get-orders-customer/get-orders-customer.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginUser},
@@ -19,6 +19,7 @@ const routes: Routes = [
   {path: 'cart', component: CartComponent, canActivate: [CanActivateGuard]},
   {path: 'cart/:id', component: CartComponent, canActivate: [CanActivateGuard]},
   {path: 'add-product', component: AddProduct, canActivate: [CanActivateGuard]},
+  {path: 'orders-customer', component: GetOrdersCustomerComponent, canActivate: [CanActivateGuard]}
   
 ];
 

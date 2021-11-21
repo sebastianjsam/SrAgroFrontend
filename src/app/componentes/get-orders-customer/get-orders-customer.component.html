@@ -1,0 +1,172 @@
+<br>
+<div class="container">
+<h1>Ordenes de pedidos realizadas</h1>
+<br>
+
+<div class="alert alert-success" role="alert">
+  <div class="row">
+
+    <div class="col-7">
+  
+      <strong>Comprador:&nbsp;</strong>{{nameUser}}
+      <br>
+      <strong>ID:&nbsp;</strong>{{IDUser}}
+      <br>
+      <strong>Número de contacto:&nbsp;</strong>{{phone}}
+    </div>
+    <div class="col-2">
+      <strong>Número de pedidos realizados:&nbsp;</strong> <h2>{{numOrders}}</h2>
+    </div>
+    <div class="col-1"></div>
+  
+    <div class="col-2">
+      <img src="../../../assets/profile.png" alt="..." class="img-thumbnail">
+    </div>
+  
+  </div>
+
+
+</div>
+
+<ul *ngFor="let item of orders" class="list-group">
+  <li class="list-group-item">
+
+    <div class="row">
+
+      <div class="col-1">
+       <strong>N°&nbsp;</strong> {{item.id_order}}
+      </div>
+      <div class="col-3">
+       <strong>Fecha solicitud:&nbsp;</strong>{{item.date_order}}
+      </div>
+      <div class="col-3">
+        <strong>Pago:&nbsp;</strong>
+        {{item.status_pay}}
+      </div>
+      <div class="col-2">
+        <strong>Total:&nbsp;</strong>
+        {{item.quantity_pay}}
+      </div>
+      <div class="col-1"></div>
+      <div class="col-2">
+        <button type="button" (click)="orderBill(item.id_order)" class="btn btn-success">Ver</button>&nbsp;
+        <button type="button" (click)="cancelOrder(item.id_order)" class="btn btn-danger">Cancelar</button>
+      </div>
+
+    </div>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+<div *ngIf = "openForm==2">
+  <div  class="window-notice" id="window-notice">
+      <div class="content">
+        <br>
+          <h1>Pedido N°&nbsp;{{id_order}}</h1>
+          <br>
+          <strong style="color: green;">Información completa de la orden de compra</strong>
+        <br>
+          <div class="content-text">
+
+            <div class="row" id="scroll">
+
+              <div class="col-6">
+                
+                <ul class="list-group">
+                  <li class="list-group-item list-group-item-warning">
+                    <strong>TOTAL PAGAR:</strong> &nbsp;{{orderBillCus.quantity_pay}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Estado de pago:</strong> &nbsp;{{orderBillCus.status_pay}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Fecha de solicitud:</strong> &nbsp;{{orderBillCus.date_order}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Fecha aproximada de entrega:</strong> &nbsp;{{orderBillCus.date_sent}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Método de pago:</strong> &nbsp;{{orderBillCus.pay_method}}
+                  </li>
+                </ul>
+
+              </div>
+
+              <div class="col-6">
+
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <strong>Comprador:</strong> &nbsp;{{orderBillCus.customer_name}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Dirección de envio:</strong> &nbsp;{{orderBillCus.shipping_address}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Teléfono:</strong> &nbsp;{{orderBillCus.phone}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Ciudad:</strong> &nbsp;{{orderBillCus.city}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>( * )Estado de la compra:</strong> &nbsp;{{orderBillCus.status_bill}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <br>
+            <strong style="color:green;">Listado de productos</strong>
+             <br><br>
+            <div id="scroll">
+              <table  class="table table-sm">
+                <thead>
+                    <tr class="table-success">
+                      <!--<th scope="col">Cod.</th>-->
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Precio (Unidad)</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Unidades</th>
+                      <th scope="col">Desc %</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+  
+  
+                    <tr *ngFor="let item of dataTableOrder">
+                        <!--<th scope="row">{{item.cod_product}}</th>-->
+                        <td>{{item.name}}</td>
+                        <td>{{item.price_unity}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.type_quantity}}</td>
+                        <td>{{item.descount}}</td>
+  
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+
+              <div class="container">
+                <br>
+              <div class="row">
+
+                <div class="col-11">
+                  <strong>Comentario:</strong> &nbsp;{{orderBillCus.description}}
+                </div>
+                <div class="col-1">
+                    <button type="button" (click)="closeOrderBill()" class="btn btn-success">Cerrar</button>&nbsp;
+                </div>
+              </div>
+              </div>
+
+         </div>
+    </div>
+  </div>
+</div>
+
+</div>
+

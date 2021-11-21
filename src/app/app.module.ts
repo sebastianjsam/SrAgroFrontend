@@ -22,7 +22,7 @@ import { CartComponent } from './componentes/cart/cart.component';
 import {AddProductCartService} from './servicios/addProductCart.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CreateOrderComponent } from './componentes/create-order/create-order.component';
-
+import { GetOrdersCustomerComponent } from './componentes/get-orders-customer/get-orders-customer.component';
 
 
 @NgModule({
@@ -36,7 +36,8 @@ import { CreateOrderComponent } from './componentes/create-order/create-order.co
     SearchProductComponent,
     TarjetaProductoComponent,
     CartComponent,
-    CreateOrderComponent
+    CreateOrderComponent,
+    GetOrdersCustomerComponent 
 
   ],
   imports: [
