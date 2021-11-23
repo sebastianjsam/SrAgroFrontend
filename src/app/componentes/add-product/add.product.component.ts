@@ -9,6 +9,7 @@ import { FarmerProducts } from "../DTOS/FarmersProductsDTO";
 import { Product } from "../DTOS/productDTO";
 import { References } from "../DTOS/referencesDTO";
 
+
 @Component({
     selector: "add-product",
     templateUrl: "./add.product.component.html",
@@ -56,7 +57,12 @@ export class AddProduct implements OnInit{
     public agregarProducto(){
         this.productService.addProduct(this.producto, this.var).subscribe(data => {
             console.log(data);
-        });
+            this.verProductosDeAgricultor();
+        }, error=>{
+            console.log(error);
+        }
+        
+        );
         
     }
 

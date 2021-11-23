@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
 import { CartComponent } from './componentes/cart/cart.component';
 import {AddProductCartService} from './servicios/addProductCart.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { AddPath } from './componentes/add-path/add.path.component';
 
 
 
@@ -36,7 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     SearchProductComponent,
     TarjetaProductoComponent,
     CartComponent,
-
+    AddPath
 
   ],
   imports: [
@@ -44,11 +45,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-
     CommonModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-
 
   ],
   providers: [AddProductCartService],
