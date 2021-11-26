@@ -1,3 +1,4 @@
+<br>
 <div class="container">
 <h1>Solicitudes de pedidos - compradores</h1>
 <br>
@@ -31,8 +32,9 @@
 
 
         <tr *ngFor="let item of orders">
-            <!--<th scope="row">{{item.cod_product}}</th>-->
-            <td>{{item.stateorder}}</td>
+            <td>
+              <img src="../../../assets/{{item.stateorder}}.png" alt="">
+            </td>
             <td>{{item.id_order}}</td>
             <td>{{item.fullname}}</td>
             <td>{{item.quantity_pay}}</td>
@@ -40,8 +42,8 @@
             <td>{{item.date_order}}</td>
             <td>{{item.supervisor}}</td>
             <td>
-              <button type="button" class="btn btn-success btn-sm">Ver</button>&nbsp;
-              <button type="button" class="btn btn-info btn-sm">Administrar</button>
+              <button type="button" (click)="orderBillAdmin(item.id_order)" class="btn btn-success btn-sm">Ver</button>&nbsp;
+              <button type="button" (click)="adminOrder()" class="btn btn-info btn-sm">Administrar</button>
             </td>
 
         </tr>
@@ -53,7 +55,7 @@
 <div class="row">
 
 <div class="col-4">
-  <h5>Información pedidos</h5><br>
+  <strong>Información pedidos</strong><br>
   Total pedidos: <br><br>
   <ul class="list-group">
     <li class="list-group-item">
@@ -92,15 +94,108 @@
 
 <div *ngIf = "openForm==2">
   <div  class="window-notice" id="window-notice">
-      <div class="content">
+    <div class="content">
+      <br>
+        <h1>Pedido N°&nbsp;{{id_order}}</h1>
         <br>
-          <strong style="color: green;">Información completa de la orden de compra</strong>
-        <br>
-          <div class="content-text">
+        <strong style="color: green;">Información completa de la orden de compra</strong>
+      <br>
+        <div class="content-text">
 
-            Hola
+          <div class="row" id="scroll">
+
+            <div class="col-6">
+              
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-warning">
+                  <strong>TOTAL PAGAR:</strong> &nbsp;{{orderBillCus.quantity_pay}}
+                </li>
+                <li class="list-group-item">
+                  <strong>Estado de pago:</strong> &nbsp;{{orderBillCus.status_pay}}
+                </li>
+                <li class="list-group-item">
+                  <strong>Fecha de solicitud:</strong> &nbsp;{{orderBillCus.date_order}}
+                </li>
+                <li class="list-group-item">
+                  <strong>Fecha aproximada de entrega:</strong> &nbsp;{{orderBillCus.date_sent}}
+                </li>
+                <li class="list-group-item">
+                  <strong>Método de pago:</strong> &nbsp;{{orderBillCus.pay_method}}
+                </li>
+                <li class="list-group-item list-group-item-danger">
+                  <strong>Supervisor:</strong> &nbsp;{{orderBillCus.supervisor}}
+                </li>
+              </ul>
+
+            </div>
+
+            <div class="col-6">
+
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <strong>Comprador:</strong> &nbsp;{{orderBillCus.customer_name}}
+                </li>
+                <li class="list-group-item">
+                  <strong>Dirección de envio:</strong> &nbsp;{{orderBillCus.shipping_address}}
+                </li>
+                <li class="list-group-item">
+                  <strong>Teléfono:</strong> &nbsp;{{orderBillCus.phone}}
+                </li>
+                <li class="list-group-item">
+                  <strong>Ciudad:</strong> &nbsp;{{orderBillCus.city}}
+                </li>
+                <li class="list-group-item">
+                  <strong>( * )Estado de la compra:</strong> &nbsp;{{orderBillCus.status_bill}}
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-    </div>
+          <br>
+          <strong style="color:green;">Listado de productos</strong>
+           <br><br>
+          <div id="scroll">
+            <table  class="table table-sm">
+              <thead>
+                  <tr class="table-success">
+                    <!--<th scope="col">Cod.</th>-->
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio (Unidad)</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Unidades</th>
+                    <th scope="col">Desc %</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+
+                  <tr *ngFor="let item of dataTableOrder">
+                      <!--<th scope="row">{{item.cod_product}}</th>-->
+                      <td>{{item.name}}</td>
+                      <td>{{item.price_unity}}</td>
+                      <td>{{item.quantity}}</td>
+                      <td>{{item.type_quantity}}</td>
+                      <td>{{item.descount}}</td>
+
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+
+            <div class="container">
+              <br>
+            <div class="row">
+
+              <div class="col-11">
+                <strong>Comentario:</strong> &nbsp;{{orderBillCus.description}}
+              </div>
+              <div class="col-1">
+                  <button type="button" (click)="closeOrderBill()" class="btn btn-success">Cerrar</button>&nbsp;
+              </div>
+            </div>
+            </div>
+
+       </div>
+  </div>
+</div>
 
 </div>

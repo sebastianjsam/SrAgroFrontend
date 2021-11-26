@@ -22,6 +22,11 @@ export class GetOrdersAdminComponent implements OnInit {
 
   openForm: number =0;
 
+  dataTableOrder: any;
+  orderBillCus: any;
+
+  id_order: number=0;
+
   constructor(private http: HttpClient) { }
 
 
@@ -64,9 +69,6 @@ export class GetOrdersAdminComponent implements OnInit {
 
 
   filtrarOrders(){
-
-   // alert(this.date_filter);
-
     this.getOrderCustomers(this.date_filter);
   }
 
@@ -76,5 +78,24 @@ export class GetOrdersAdminComponent implements OnInit {
 
   }
 
+  orderBillAdmin(id_order: number){
+
+    this.http.get<any>("https://localhost:44370/infoCustomerOrderAdmin?id_order="+id_order).subscribe(data => {
+      this.orderBillCus = data;
+      },error => this.error = error);
+
+      this.http.get<any>("https://localhost:44370/productsOrderCustomer?cod_order="+id_order).subscribe(data => {
+       
+        this.dataTableOrder = data;
+        },error => this.error = error);
+
+    this.id_order = id_order;
+    this.openForm = 2;
+  }
+
+  adminOrder(){
+
+    alert('Admintrar orden: En proceso de construcción...');
+  }
 
 }

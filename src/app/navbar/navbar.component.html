@@ -53,11 +53,22 @@
                 </a>
               </div>
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/orders-customer">Pedidos</a>
+            </li>
           </div>
 
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/orders-customer">Pedidos</a>
-          </li>
+                    
+          <div *ngIf = "login==='ADMINISTRADOR'">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/orders-admin">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-person-fill" viewBox="0 0 16 16">
+                  <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-3 4c2.623 0 4.146.826 5 1.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1.245C3.854 11.825 5.377 11 8 11z"/>
+                </svg>
+                Admin Pedidos</a>
+            </li>
+        </div>
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="search" [(ngModel)]="textoDeInput " name="texto" placeholder="Search" aria-label="Search">
@@ -69,7 +80,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
         <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
 
-          <div *ngIf = "login==='COMPRADOR' || login==='AGRICULTOR' || login==='CUSTOMER'; else loggedOut">
+          <div *ngIf = "login==='COMPRADOR' || login==='AGRICULTOR' || login==='CUSTOMER' || login==='ADMINISTRADOR'; else loggedOut">
 
             <small><strong>{{nameUser}}</strong></small>
             &nbsp;&nbsp;
