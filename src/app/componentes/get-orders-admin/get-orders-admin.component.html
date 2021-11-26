@@ -1,0 +1,106 @@
+<div class="container">
+<h1>Solicitudes de pedidos - compradores</h1>
+<br>
+<div>
+  Filtrar por fechas:
+  <input [(ngModel)]="date_filter" name="date_filter" type="date" id="start" name="trip-start"
+       value="2021-11-01"
+       min="2021-01-01" max="2025-12-31">
+       &nbsp; 
+       <button type="button" (click)="filtrarOrders()" class="btn btn-danger btn-sm">Filtrar</button>
+</div>
+
+<br>
+
+<div id="scroll">
+  <table  class="table table-sm">
+    <thead>
+        <tr class="table-success">
+          <!--<th scope="col">Cod.</th>-->
+          <th scope="col">Estado</th>
+          <th scope="col">N° de pedido</th>
+          <th scope="col">Comprador</th>
+          <th scope="col">Total pagar</th>
+          <th scope="col">Estado de pago</th>
+          <th scope="col">Fecha de orden</th>
+          <th scope="col">Supervisor</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+        <tr *ngFor="let item of orders">
+            <!--<th scope="row">{{item.cod_product}}</th>-->
+            <td>{{item.stateorder}}</td>
+            <td>{{item.id_order}}</td>
+            <td>{{item.fullname}}</td>
+            <td>{{item.quantity_pay}}</td>
+            <td>{{item.status_pay}}</td>
+            <td>{{item.date_order}}</td>
+            <td>{{item.supervisor}}</td>
+            <td>
+              <button type="button" class="btn btn-success btn-sm">Ver</button>&nbsp;
+              <button type="button" class="btn btn-info btn-sm">Administrar</button>
+            </td>
+
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="row">
+
+<div class="col-4">
+  <h5>Información pedidos</h5><br>
+  Total pedidos: <br><br>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <strong>Solicitados:</strong> &nbsp;{{num_solic}}
+    </li>
+    <li class="list-group-item">
+      <strong>Pagados:</strong> &nbsp;{{num_pay}}
+    </li>
+    <li class="list-group-item">
+      <strong>En trámite:</strong> &nbsp;{{num_tram}}
+    </li>
+  </ul>
+  
+
+</div>
+
+<div class="col-8">
+
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-light ">
+      <br><br><br><br><br>
+
+      <h3>Total pagados:</h3>$&nbsp;{{total_pay}}
+    <br><br><br>
+    </li>
+    
+  </ul>
+ 
+</div>
+
+</div>
+
+
+</div>
+
+
+<div *ngIf = "openForm==2">
+  <div  class="window-notice" id="window-notice">
+      <div class="content">
+        <br>
+          <strong style="color: green;">Información completa de la orden de compra</strong>
+        <br>
+          <div class="content-text">
+
+            Hola
+          </div>
+        </div>
+    </div>
+
+</div>
