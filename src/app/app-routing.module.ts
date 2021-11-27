@@ -8,6 +8,7 @@ import { CartComponent } from './componentes/cart/cart.component';
 import { CanActivateGuard } from './can-activate.guard';
 import { SearchProductComponent } from './componentes/SearchProduct/SearchProduct/SearchProduct.component';
 import { AddProduct } from './componentes/add-product/add.product.component';
+import { ConsultarProductoComponent } from './componentes/ConsultarProducto/ConsultarProducto.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'Search', component: SearchProductComponent},
   {path: 'Search/:search', component: SearchProductComponent},
+  {path: 'ProductById/:product', component: ConsultarProductoComponent},
   {path: 'cart', component: CartComponent, canActivate: [CanActivateGuard]},
   {path: 'cart/:id', component: CartComponent, canActivate: [CanActivateGuard]},
   {path: 'add-product', component: AddProduct, canActivate: [CanActivateGuard]}

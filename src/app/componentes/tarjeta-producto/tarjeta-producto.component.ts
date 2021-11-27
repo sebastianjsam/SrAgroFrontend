@@ -27,4 +27,8 @@ export class TarjetaProductoComponent implements OnInit {
     console.log(this.producto);
     this.router.navigate(['/cart/'+ this.producto.cod_product]);
   }
+  public IrdetalleProduct() {
+    console.log(this.producto);
+    this.router.navigate(['/ProductById/'+ this.producto.cod_product]);
+  }
 }

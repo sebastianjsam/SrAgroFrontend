@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
 import { CartComponent } from './componentes/cart/cart.component';
 import {AddProductCartService} from './servicios/addProductCart.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ConsultarProductoComponent } from './componentes/ConsultarProducto/ConsultarProducto.component';
 
 
 
@@ -36,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     SearchProductComponent,
     TarjetaProductoComponent,
     CartComponent,
+    ConsultarProductoComponent
 
 
   ],

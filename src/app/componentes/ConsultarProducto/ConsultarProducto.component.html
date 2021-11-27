@@ -1,0 +1,50 @@
+
+
+<!--maquetando-->
+
+<div class="row" style="margin: 5vh;">
+  <h1 style="text-align: center;"> {{producto?.name}}</h1>
+  <br>
+  <div class="col-7" style="">
+<!--imagenes-->
+    <div class="row">
+      <div class="col-2" style="background-color: lightcyan;">
+        <img src={{resolverRuta()}} alt="" style="height: 10vh;">
+        <img src={{resolverRuta()}} alt="" style="height: 10vh;">
+        <img src={{resolverRuta()}} alt="" style="height: 10vh;">
+        <img src={{resolverRuta()}} alt="" style="height: 10vh;">
+        <img src={{resolverRuta()}} alt="" style="height: 10vh;">
+        <img src={{resolverRuta()}} alt="" style="height: 10vh;">
+      </div>
+      <div class="col-10" style="">
+        <img src={{resolverRuta()}} alt="" style="height: 50vh;">
+      </div>
+
+    </div>
+
+
+  </div>
+  <div class="col-5" style="">
+    <br>
+      <h4>categoria: {{producto?.category?.name}} </h4>
+      <h4>cantidad disponible: {{producto?.quantity}}</h4>
+      <h4>Fecha de cosecha: {{producto?.references?.entry_date|date}} </h4>
+      <h4>Fecha de expiración: {{producto?.references?.expiration_date|date}}</h4>
+      <h4>Ubicacion: {{producto?.name}}</h4>
+      <h1 style="text-align: center;">{{producto?.price|currency}}</h1>
+      <br>
+      <p>{{producto?.description}}</p>
+
+      <div class="col button-Comprar" style="text-align: center;">
+        <button (click)="resolverRuta()" class="btn btn-lg btn-success" mat-stroked-button color="warn" style="text-align: center;" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag"
+            viewBox="0 0 16 16">
+            <path
+              d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+          </svg>
+          <h4>Comprar</h4>
+        </button>
+      </div>
+  </div>
+
+</div>

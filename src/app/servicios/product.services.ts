@@ -30,4 +30,11 @@ export class ProductService{
         return  this.http.get("https://localhost:44370/filterProduct?searchName="+search+"&category="+category+"&price="+price+"&quantity="+quantity,{'headers':headers});
     }
 
+
+    public  ConsultarProductoService(IdProduct:string):Observable<any>{
+      const headers = { 'content-type': 'application/json'}
+      //const body=JSON.stringify(product);
+        return  this.http.get("https://localhost:44370/ProductById?idProduct="+IdProduct,{'headers':headers});
+    }
+
 }
