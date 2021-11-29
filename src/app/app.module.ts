@@ -20,8 +20,12 @@ import { TarjetaProductoComponent } from './componentes/tarjeta-producto/tarjeta
 import { CommonModule } from '@angular/common';
 import { CartComponent } from './componentes/cart/cart.component';
 import {AddProductCartService} from './servicios/addProductCart.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddPath } from './componentes/add-path/add.path.component';
+
+import { ToastrModule } from 'ngx-toastr';
+
+
 
 
 
@@ -38,7 +42,6 @@ import { AddPath } from './componentes/add-path/add.path.component';
     TarjetaProductoComponent,
     CartComponent,
     AddPath
-
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,7 @@ import { AddPath } from './componentes/add-path/add.path.component';
     CommonModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-
+    ToastrModule.forRoot()
   ],
   providers: [AddProductCartService],
   bootstrap: [AppComponent]

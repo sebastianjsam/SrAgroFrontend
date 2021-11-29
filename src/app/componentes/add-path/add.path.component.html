@@ -1,31 +1,42 @@
 <div class="container">
     <div class="custom-form-add-path">
         <div class="row align-items-start">
-            <div class="col">
-                <h3>Añadir ruta de transporte</h3>
-
-                <hr>
-                <label for="idlugarDeSalida">Lugar de salida</label>
-                <input type="text" [(ngModel)]="lugarDeSalida" name="lugarDeSalida"
-                    placeholder="Lugar de salida" required="required" />
-
-                <label for="idlugarDeLlegada">Lugar de llegada</label>
-                <input type="text" [(ngModel)]="lugarDeLlegada" name="lugarDeLlegada"
-                placeholder="Lugar de Llegada" required="required" />
-
-                <label for="">Fecha de salida</label>
-                <input type="datetime-local" [(ngModel)]="path.time_out" placeholder="Fecha y hora de salida" />
-                <label for="">Fecha de llegada</label>
-                <input type="datetime-local" [(ngModel)]="path.time_in" placeholder="Fecha y hora de salida" />
-            </div>
-            <div class="row align-items-start">
+            <form class="formPath" name="formPath" #formPath="ngForm" novalidate id="formPath">
                 <div class="col">
-                    <button type="submit" (click)="agregarRutaDeViaje()">Añadir</button>
+                    <h3>Añadir ruta de transporte</h3>
+
+                    <hr>
+
+                    <label for="idlugarDeSalida">Lugar de salida</label>
+                    <input type="text" [(ngModel)]="lugarDeSalida" name="lugarDeSalida" placeholder="Lugar de salida"
+                        required />
+
+
+
+
+                    <label for="idlugarDeLlegada">Lugar de llegada</label>
+                    <input type="text" [(ngModel)]="lugarDeLlegada" name="lugarDeLlegada" placeholder="Lugar de Llegada"
+                        required />
+
+                    <label for="">Fecha de salida</label>
+                    <input type="datetime-local" [(ngModel)]="path.time_out" [value]="fechasalida"
+                        (change)="fechaSalida($event)" placeholder="Fecha y hora de salida" required />
+
+
+                    <label for="">Fecha de llegada</label>
+                    <input type="datetime-local" [(ngModel)]="path.time_in"
+                    (change)="fechaLlegada($event)" placeholder="Fecha y hora de salida" required />
                 </div>
-                <div class="col">
-                    <button type="submit">Cancelar</button>
+                <div class="row align-items-start">
+                    <div class="col">
+                        <button type="submit" (click)="agregarRutaDeViaje(formPath)">Añadir</button>
+                    </div>
+                    <div class="col">
+                        <button type="submit">Cancelar</button>
+                    </div>
                 </div>
-            </div>
+            </form>
+
         </div>
     </div>
 </div>
