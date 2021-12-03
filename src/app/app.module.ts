@@ -55,8 +55,8 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     CommonModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
-    //ToastrModule.forRoot()
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [AddProductCartService],
   bootstrap: [AppComponent]
