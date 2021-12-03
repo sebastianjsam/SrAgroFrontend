@@ -9,6 +9,7 @@ import { CanActivateGuard } from './can-activate.guard';
 import { SearchProductComponent } from './componentes/SearchProduct/SearchProduct/SearchProduct.component';
 import { AddProduct } from './componentes/add-product/add.product.component';
 import { ConsultarProductoComponent } from './componentes/ConsultarProducto/ConsultarProducto.component';
+import { AddPath } from './componentes/add-path/add.path.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'ProductById/:product', component: ConsultarProductoComponent},
   {path: 'cart', component: CartComponent, canActivate: [CanActivateGuard]},
   {path: 'cart/:id', component: CartComponent, canActivate: [CanActivateGuard]},
-  {path: 'add-product', component: AddProduct, canActivate: [CanActivateGuard]}
+  {path: 'add-product', component: AddProduct, canActivate: [CanActivateGuard]},
+  {path: 'add-path', component: AddPath}
 ];
 
 @NgModule({

@@ -20,8 +20,14 @@ import { TarjetaProductoComponent } from './componentes/tarjeta-producto/tarjeta
 import { CommonModule } from '@angular/common';
 import { CartComponent } from './componentes/cart/cart.component';
 import {AddProductCartService} from './servicios/addProductCart.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConsultarProductoComponent } from './componentes/ConsultarProducto/ConsultarProducto.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddPath } from './componentes/add-path/add.path.component';
+
+//import { ToastrModule } from 'ngx-toastr';
+
+
 
 
 
@@ -37,21 +43,20 @@ import { ConsultarProductoComponent } from './componentes/ConsultarProducto/Cons
     SearchProductComponent,
     TarjetaProductoComponent,
     CartComponent,
-    ConsultarProductoComponent
+    ConsultarProductoComponent,
 
 
+    AddPath
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-
     CommonModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
-
-
+    BrowserAnimationsModule
+    //ToastrModule.forRoot()
   ],
   providers: [AddProductCartService],
   bootstrap: [AppComponent]

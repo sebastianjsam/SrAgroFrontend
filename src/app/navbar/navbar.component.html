@@ -15,7 +15,6 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Promociones</a>
           </li>
-
           <div *ngIf = "login==='COMPRADOR'">
             <li class="nav-item">
               <a class="nav-link" routerLink="/cart">Carrito</a>
@@ -27,7 +26,11 @@
               <a class="nav-link" routerLink="/add-product">Añadir producto</a>
             </li>
           </div>
-
+          <div *ngIf = "login==='DRIVER'">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/add-path">Añadir ruta</a>
+            </li>
+          </div>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Categorias
@@ -67,7 +70,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
         <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
 
-          <div *ngIf = "login==='COMPRADOR' || login==='AGRICULTOR' || login==='CUSTOMER'; else loggedOut">
+          <div *ngIf = "login==='COMPRADOR' || login==='AGRICULTOR' || login==='CUSTOMER' || login==='DRIVER'; else loggedOut">
 
             <small><strong>{{nameUser}}</strong></small>
             &nbsp;&nbsp;

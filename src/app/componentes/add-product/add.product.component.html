@@ -2,8 +2,8 @@
 
     <form class="custom-form-add-product mt-5" method="post">
         <div class="row align-items-start">
-
             <div class="col">
+               
                 <h3>Añadir producto</h3>
                 <hr>
                 <label for="">Nombre del producto</label>
@@ -28,11 +28,11 @@
 
                 <label for="">Fecha de cosecha</label>
                 <input type="date" [(ngModel)]="producto.references.entry_date" name="FechaCosecha" placeholder="Fecha de cosecha"
-                    required="required" />
+                (change)="fechaCosecha($event)" required="required" />
 
                 <label for="">Fecha de expiración</label>
                 <input type="date" [(ngModel)]="producto.references.expiration_date" name="fechaExpiracion"
-                    placeholder="Fecha de expiración" required="required" />
+                (change)="fechaExpiracion($event)" placeholder="Fecha de expiración" required="required" />
 
                 <label for="">Descripción</label>
                 <input type="text" [(ngModel)]="producto.description" name="descripcion" placeholder="Descripcion"
