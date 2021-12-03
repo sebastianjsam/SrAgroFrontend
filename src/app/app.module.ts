@@ -25,7 +25,7 @@ import { ConsultarProductoComponent } from './componentes/ConsultarProducto/Cons
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddPath } from './componentes/add-path/add.path.component';
 
-//import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
