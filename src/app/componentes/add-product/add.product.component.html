@@ -63,12 +63,26 @@
                             <th>Nombre</th>
                             <th>Precio</th>
                             <th>Cantidad</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
                         </thead>
                         <tbody>
                             <tr *ngFor="let producto of farmersProducts">
                                 <td>{{producto.name}}</td>
                                 <td>{{producto.price}}</td>
                                 <td>{{producto.quantity}}</td>
+                                <td>
+                                    <a href="" class="a-update">
+                                        <mat-icon>update</mat-icon>
+
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="" class="a-delete">
+                                        <mat-icon>delete</mat-icon>
+
+                                    </a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

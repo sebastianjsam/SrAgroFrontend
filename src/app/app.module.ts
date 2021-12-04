@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddPath } from './componentes/add-path/add.path.component';
 
 import { ToastrModule } from 'ngx-toastr';
-
+import { MaterialModule } from './material.module';
 
 
 
@@ -42,6 +44,7 @@ import { ToastrModule } from 'ngx-toastr';
     TarjetaProductoComponent,
     CartComponent,
     AddPath
+
   ],
   imports: [
     BrowserModule,
@@ -51,9 +54,11 @@ import { ToastrModule } from 'ngx-toastr';
     CommonModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MaterialModule
   ],
   providers: [AddProductCartService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

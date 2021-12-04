@@ -1,3 +1,4 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 *{
   box-sizing: border-box;
 }
@@ -62,3 +63,5 @@ h1 {
   border: 0 none;
   background: #ebf5fc;
   }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
