@@ -24,3 +24,7 @@
     position: fixed;
     z-index: 999;
 }
+
+.table-transport{
+    margin-left: 40%;
+}

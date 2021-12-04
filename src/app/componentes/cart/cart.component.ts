@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import {AddProductCartService} from 'src/app/servicios/addProductCart.service';
 import { HttpClient } from "@angular/common/http";
 import { Router } from '@angular/router';
+import { TransportInformationService } from 'src/app/servicios/transport.information.service';
+import { TransportInformation } from '../DTOS/TransportInformarionDTO';
 
 @Component({
   selector: 'app-cart',
@@ -47,14 +49,18 @@ export class CartComponent implements OnInit {
   dataTableCart: any;
   optionDeleteProd: number=0;
 
-  constructor(private cart : AddProductCartService,
+  
+  public transportInformation = new Array<TransportInformation>();
+
+  constructor(private cart : AddProductCartService, private transportInformationService: TransportInformationService,
     private route: ActivatedRoute, private http: HttpClient) {   
       this.showDataProduct(false); 
      }
 
   ngOnInit():void {
     this.id = this.route.snapshot.paramMap.get('id')?.trim()+"";
-    this.showDataProduct(true);
+    this.showDataProduct(true);    
+    this.verInformaciónDeTransporte();
     //this.dataAns = this.cart.listProdCart(this.dataUser);
   }
     
@@ -202,6 +208,13 @@ clearCart(){
     this.ansAddProduct(data.mensaje);
   },error => this.error = error);
 
+}
+
+public verInformaciónDeTransporte() {
+  this.transportInformationService.listTransportInformation().subscribe((listTransportInformation: TransportInformation[]) => {
+      this.transportInformation = listTransportInformation;
+      console.log(this.transportInformation);
+  });
 }
 
 

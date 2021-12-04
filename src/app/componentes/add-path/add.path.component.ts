@@ -3,6 +3,8 @@ import { PathService } from "src/app/servicios/path.service";
 import { Path } from "../DTOS/PathDTO";
 import { FormsModule } from '@angular/forms';
 import { NotificationService } from 'src/app/notification.service'
+import { TransportInformationService } from "src/app/servicios/transport.information.service";
+import { TransportInformation } from "../DTOS/TransportInformarionDTO";
 
 
 
@@ -25,7 +27,6 @@ export class AddPath implements OnInit{
     }
 
     ngOnInit(): void {
-        
     }
 
     public agregarRutaDeViaje(form_path: any){
@@ -51,6 +52,9 @@ export class AddPath implements OnInit{
         }
         
     }
+
+   
+
 
     public validarCampos(): boolean{
         if(this.path.time_out > this.path.time_in){
