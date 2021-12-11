@@ -29,6 +29,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { TransportationRequestsComponent } from './componentes/transportationRequests/transportationRequests.component';
 import { PathhistoryComponent } from './componentes/Pathhistory/Pathhistory.component';
 
+import { CreateOrderComponent } from './componentes/create-order/create-order.component';
+import { GetOrdersCustomerComponent } from './componentes/get-orders-customer/get-orders-customer.component';
+import { GetOrdersAdminComponent } from './componentes/get-orders-admin/get-orders-admin.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +45,9 @@ import { PathhistoryComponent } from './componentes/Pathhistory/Pathhistory.comp
     TarjetaProductoComponent,
     CartComponent,
     ConsultarProductoComponent,
-
-
+    CreateOrderComponent,
+    GetOrdersCustomerComponent,
+    GetOrdersAdminComponent,
     AddPath,
     TransportationRequestsComponent,
     PathhistoryComponent

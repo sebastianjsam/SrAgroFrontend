@@ -13,6 +13,8 @@ import { AddPath } from './componentes/add-path/add.path.component';
 import { TransportationRequestsComponent } from './componentes/transportationRequests/transportationRequests.component';
 import { PathhistoryComponent } from './componentes/Pathhistory/Pathhistory.component';
 
+import { GetOrdersCustomerComponent } from './componentes/get-orders-customer/get-orders-customer.component';
+import { GetOrdersAdminComponent } from './componentes/get-orders-admin/get-orders-admin.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginUser},
@@ -26,8 +28,12 @@ const routes: Routes = [
   {path: 'add-product', component: AddProduct},
   {path: 'add-path', component: AddPath},
   {path: 'TransportationRequests', component:  TransportationRequestsComponent},
-  {path: 'Pathhistory', component:PathhistoryComponent}
+  {path: 'Pathhistory', component:PathhistoryComponent},
 
+
+  {path: 'add-product', component: AddProduct, canActivate: [CanActivateGuard]},
+  {path: 'orders-customer', component: GetOrdersCustomerComponent, canActivate: [CanActivateGuard]},
+  {path: 'orders-admin', component: GetOrdersAdminComponent, canActivate: [CanActivateGuard]}
 
 ];
 

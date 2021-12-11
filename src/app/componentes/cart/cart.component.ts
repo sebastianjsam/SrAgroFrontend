@@ -47,6 +47,8 @@ export class CartComponent implements OnInit {
   dataTableCart: any;
   optionDeleteProd: number=0;
 
+  enableOrder: number=0;
+
   constructor(private cart : AddProductCartService,
     private route: ActivatedRoute, private http: HttpClient) {   
       this.showDataProduct(false); 
@@ -56,6 +58,7 @@ export class CartComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id')?.trim()+"";
     this.showDataProduct(true);
     //this.dataAns = this.cart.listProdCart(this.dataUser);
+    this.enableRequestOrder(this.dataUser);
   }
     
   showDataProduct(action: Boolean){
@@ -201,6 +204,17 @@ clearCart(){
   this.http.get<any>("https://localhost:44370/clearCart?email="+this.dataUser).subscribe(data => {
     this.ansAddProduct(data.mensaje);
   },error => this.error = error);
+
+}
+
+enableRequestOrder(email: string){
+
+    this.http.get<any>("https://localhost:44370/enableOrder?email_user="+email).subscribe(data => {
+     if(data.estado){
+      this.enableOrder = 2; 
+     }
+
+    },error => this.error = error);
 
 }
 
