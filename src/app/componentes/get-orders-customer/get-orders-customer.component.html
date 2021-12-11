@@ -6,7 +6,7 @@
 <div class="alert alert-success" role="alert">
   <div class="row">
 
-    <div class="col-7">
+    <div class="col col-sm-7">
   
       <strong>Comprador:&nbsp;</strong>{{nameUser}}
       <br>
@@ -14,12 +14,12 @@
       <br>
       <strong>Número de contacto:&nbsp;</strong>{{phone}}
     </div>
-    <div class="col-2">
+    <div class="col col-sm-2">
       <strong>Número de pedidos realizados:&nbsp;</strong> <h2>{{numOrders}}</h2>
     </div>
-    <div class="col-1"></div>
+    <div class="col col-sm-1"></div>
   
-    <div class="col-2">
+    <div class="col col-sm-2">
       <img src="../../../assets/profile.png" alt="..." class="img-thumbnail">
     </div>
   
@@ -33,22 +33,22 @@
 
     <div class="row">
 
-      <div class="col-1">
+      <div class="col col-sm-1">
        <strong>N°&nbsp;</strong> {{item.id_order}}
       </div>
-      <div class="col-3">
+      <div class="col col-sm-3">
        <strong>Fecha solicitud:&nbsp;</strong>{{item.date_order}}
       </div>
-      <div class="col-3">
+      <div class="col col-sm-3">
         <strong>Pago:&nbsp;</strong>
         {{item.status_pay}}
       </div>
-      <div class="col-2">
+      <div class="col col-sm-2">
         <strong>Total:&nbsp;</strong>
         {{item.quantity_pay}}
       </div>
-      <div class="col-1"></div>
-      <div class="col-2">
+      <div class="col col-sm-1"></div>
+      <div class="col col-sm-2">
         <button type="button" (click)="orderBill(item.id_order)" class="btn btn-success">Ver</button>&nbsp;
         <button type="button" (click)="cancelOrder(item.id_order)" class="btn btn-danger">Cancelar</button>
       </div>
@@ -64,9 +64,9 @@
 
 
 
-<div *ngIf = "openForm==2">
+<div *ngIf = "openForm==2" >
   <div  class="window-notice" id="window-notice">
-      <div class="content">
+      <div class="content" id="scroll">
         <br>
           <h1>Pedido N°&nbsp;{{id_order}}</h1>
           <br>
@@ -76,7 +76,7 @@
 
             <div class="row" id="scroll">
 
-              <div class="col-6">
+              <div class="col col-sm-6">
                 
                 <ul class="list-group">
                   <li class="list-group-item list-group-item-warning">
@@ -98,7 +98,7 @@
 
               </div>
 
-              <div class="col-6">
+              <div class="col col-sm-6">
 
                 <ul class="list-group">
                   <li class="list-group-item">
@@ -123,7 +123,7 @@
             <strong style="color:green;">Listado de productos</strong>
              <br><br>
             <div id="scroll">
-              <table  class="table table-sm">
+              <table  class="table table-sm table-responsive-sm">
                 <thead>
                     <tr class="table-success">
                       <!--<th scope="col">Cod.</th>-->
@@ -154,10 +154,10 @@
                 <br>
               <div class="row">
 
-                <div class="col-11">
+                <div class="col col-sm-11">
                   <strong>Comentario:</strong> &nbsp;{{orderBillCus.description}}
                 </div>
-                <div class="col-1">
+                <div class="col col-sm-1">
                     <button type="button" (click)="closeOrderBill()" class="btn btn-success">Cerrar</button>&nbsp;
                 </div>
               </div>

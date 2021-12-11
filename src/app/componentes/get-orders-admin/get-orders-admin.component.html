@@ -14,7 +14,7 @@
 <br>
 
 <div id="scroll">
-  <table  class="table table-sm">
+  <table  class="table table-sm table-responsive-sm">
     <thead>
         <tr class="table-success">
           <!--<th scope="col">Cod.</th>-->
@@ -54,7 +54,7 @@
 
 <div class="row">
 
-<div class="col-4">
+<div class="col col-sm-4">
   <strong>Información pedidos</strong><br>
   Total pedidos: <br><br>
   <ul class="list-group">
@@ -72,7 +72,7 @@
 
 </div>
 
-<div class="col-8">
+<div class="col col-sm-8">
 
   <ul class="list-group">
     <li class="list-group-item list-group-item-light ">
@@ -94,7 +94,7 @@
 
 <div *ngIf = "openForm==2">
   <div  class="window-notice" id="window-notice">
-    <div class="content">
+    <div class="content"  id="scroll">
       <br>
         <h1>Pedido N°&nbsp;{{id_order}}</h1>
         <br>
@@ -104,7 +104,7 @@
 
           <div class="row" id="scroll">
 
-            <div class="col-6">
+            <div class="col col-sm-6">
               
               <ul class="list-group">
                 <li class="list-group-item list-group-item-warning">
@@ -129,7 +129,7 @@
 
             </div>
 
-            <div class="col-6">
+            <div class="col col-sm-6">
 
               <ul class="list-group">
                 <li class="list-group-item">
@@ -154,7 +154,7 @@
           <strong style="color:green;">Listado de productos</strong>
            <br><br>
           <div id="scroll">
-            <table  class="table table-sm">
+            <table  class="table table-sm table-responsive-sm">
               <thead>
                   <tr class="table-success">
                     <!--<th scope="col">Cod.</th>-->
@@ -185,10 +185,10 @@
               <br>
             <div class="row">
 
-              <div class="col-11">
+              <div class="col col-sm-11">
                 <strong>Comentario:</strong> &nbsp;{{orderBillCus.description}}
               </div>
-              <div class="col-1">
+              <div class="col col-sm-1">
                   <button type="button" (click)="closeOrderBill()" class="btn btn-success">Cerrar</button>&nbsp;
               </div>
             </div>

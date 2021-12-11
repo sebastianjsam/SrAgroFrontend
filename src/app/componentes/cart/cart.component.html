@@ -3,11 +3,11 @@
 <div *ngIf = "active == 1 && id!=='3'">
 
   <div class="row">
-    <div class="col-10">
+    <div class="col col-sm-10">
         <!--Informacion de producto-->
         <div class="card">
             <div class="row no-gutters">
-                <div class="col-4">
+                <div class="col col-sm-4">
 
                     <div class="container">
                         <br />
@@ -18,9 +18,9 @@
                       --><img src="../../../assets/images/CartPhoto.jpg" class="card-img" alt="...">
                     </div>
                 </div>
-                <div class="col-7">
+                <div class="col col-sm-7 ">
                     <div class="row">
-                        <div class="col-7">
+                        <div class="col col-sm-7 ">
                             <div class="card-body">
                                 <h3 class="card-title">Información</h3>
                                 <p class="card-text">
@@ -40,7 +40,7 @@
                                 <strong>Cantidad:</strong>&nbsp;
 
                                 <div class="row">
-                                    <div class="col-7">
+                                    <div class="col col-sm-7">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <button id="decreaseProduct" (click)="restCant()" type="button" class="btn btn-success">-</button>
@@ -66,7 +66,7 @@
                             </div>
                         </div>
 
-                        <div class="col-5">
+                        <div class="col col-sm-5">
                             <br /><br />
                             <div class="alert alert-success" role="alert">
 
@@ -89,11 +89,11 @@
 
 
     </div>
-    <div class="col-2" >
+    <div class="col col-sm-2" >
         <strong>Carrito</strong>
         <div id="listCar">
             <div class="row">
-                <div class="col-12">
+                <div class="col col-sm-12">
                     <ul class="list-group">
                         <li class="list-group-item"><strong>N° productos:</strong> &nbsp;{{numList}}</li>
                         <li class="list-group-item"><strong>Kg:</strong>  &nbsp;{{kgFake}}</li>
@@ -113,13 +113,13 @@
 
   <br>
 
-  <table *ngIf = "activeTable==1" class="table table-sm">
+  <table *ngIf = "activeTable==1" class="table table-sm table-responsive-sm">
     <caption>Listado de productos añadidos</caption>
       <thead>
         <tr class="table-warning">
           <!--<th scope="col">Cod.</th>-->
           <th scope="col">Nombre</th>
-          <th scope="col">Cantidad (Kg)</th>
+          <th scope="col">Cantidad</th>
           <th scope="col">Subtotal</th>
         </tr>
       </thead>
@@ -140,11 +140,11 @@
 <div *ngIf = "id=='3'">
 
 <div class="row" >
-    <div class="col-3">
+    <div class="col col-sm-3">
         <strong>Información Carrito</strong>
         <div id="listCar">
             <div class="row">
-                <div class="col-12">
+                <div class="col col-sm-12">
                     <ul class="list-group">
                         <li class="list-group-item"><strong>N° productos:</strong> &nbsp;{{numList}}</li>
                         <li class="list-group-item"><strong>Kg:</strong>  &nbsp;{{kgFake}}</li>
@@ -161,18 +161,18 @@
 
     </div>
 
-    <div class="col-9">
+    <div class="col col-sm-9">
 
         <div *ngIf = "activeTable==2">
             <h3>Listado de productos</h3>
 
-            <table  class="table table-sm">
+            <table  class="table table-sm table-responsive-sm">
                 <thead>
                     <tr class="table-success">
                       <!--<th scope="col">Cod.</th>-->
                       <th scope="col">Nombre</th>
                       <th scope="col">Precio (Unidad)</th>
-                      <th scope="col">Cantidad (Kg)</th>
+                      <th scope="col">Cantidad</th>
                       <th scope="col">Subtotal</th>
                       <th scope="col">Acción</th>
                     </tr>
@@ -200,8 +200,8 @@
               </table>
 
               <div class="row">
-                    <div class="col-9"></div>
-                    <div class="col-3">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col col-sm-9"></div>
+                    <div class="col col-sm-3">&nbsp;&nbsp;&nbsp;&nbsp;
                         <button type="button" (click)="clearCart()" class="btn btn-link">Cancelar carrito <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-x-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7.354 5.646 8.5 6.793l1.146-1.147a.5.5 0 0 1 .708.708L9.207 7.5l1.147 1.146a.5.5 0 0 1-.708.708L8.5 8.207 7.354 9.354a.5.5 0 1 1-.708-.708L7.793 7.5 6.646 6.354a.5.5 0 1 1 .708-.708z"/>
                           </svg></button>
@@ -234,8 +234,8 @@
                 <div class="container">
                 <div class="row">
 
-                <div class="col-10"></div>
-                <div class="col-2">
+                <div class="col col-sm-10"></div>
+                <div class="col col-sm-2">
                 <a type="button" href="/cart/3" class="btn btn-outline-danger">Cerrar</a>
                 </div>
 
@@ -254,8 +254,8 @@
                 <div class="container">
                 <div class="row">
 
-                <div class="col-7"></div>
-                <div class="col-5">
+                <div class="col col-sm-7"></div>
+                <div class="col col-sm-5">
                     <button type="button" (click)="deleteProdCart()" class="btn btn-success">Aceptar</button>&nbsp;
                     <button  type="button" (click)="closeDeleProd()"class="btn btn-danger">Cancelar</button>
                 </div>
