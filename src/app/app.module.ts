@@ -26,10 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddPath } from './componentes/add-path/add.path.component';
 
 import { ToastrModule } from 'ngx-toastr';
-
-
-
-
+import { TransportationRequestsComponent } from './componentes/transportationRequests/transportationRequests.component';
+import { PathhistoryComponent } from './componentes/Pathhistory/Pathhistory.component';
 
 
 @NgModule({
@@ -46,7 +44,9 @@ import { ToastrModule } from 'ngx-toastr';
     ConsultarProductoComponent,
 
 
-    AddPath
+    AddPath,
+    TransportationRequestsComponent,
+    PathhistoryComponent
   ],
   imports: [
     BrowserModule,

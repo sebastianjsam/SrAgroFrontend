@@ -10,6 +10,8 @@ import { SearchProductComponent } from './componentes/SearchProduct/SearchProduc
 import { AddProduct } from './componentes/add-product/add.product.component';
 import { ConsultarProductoComponent } from './componentes/ConsultarProducto/ConsultarProducto.component';
 import { AddPath } from './componentes/add-path/add.path.component';
+import { TransportationRequestsComponent } from './componentes/transportationRequests/transportationRequests.component';
+import { PathhistoryComponent } from './componentes/Pathhistory/Pathhistory.component';
 
 
 const routes: Routes = [
@@ -21,8 +23,12 @@ const routes: Routes = [
   {path: 'ProductById/:product', component: ConsultarProductoComponent},
   {path: 'cart', component: CartComponent, canActivate: [CanActivateGuard]},
   {path: 'cart/:id', component: CartComponent, canActivate: [CanActivateGuard]},
-  {path: 'add-product', component: AddProduct, canActivate: [CanActivateGuard]},
-  {path: 'add-path', component: AddPath}
+  {path: 'add-product', component: AddProduct},
+  {path: 'add-path', component: AddPath},
+  {path: 'TransportationRequests', component:  TransportationRequestsComponent},
+  {path: 'Pathhistory', component:PathhistoryComponent}
+
+
 ];
 
 @NgModule({

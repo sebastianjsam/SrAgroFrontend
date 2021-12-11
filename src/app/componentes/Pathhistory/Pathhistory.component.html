@@ -1,0 +1,51 @@
+<div class="container">
+  <br>
+  <h1 class="alert alert-success" style="text-align: center;">Historial de rutas</h1>
+
+  <table class="table table-striped alert alert-info">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">estado pedido</th>
+      <th scope="col">fecha de salida</th>
+      <th scope="col">fecha de llegada</th>
+      <th scope="col">ruta</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let country of paths; index as i">
+      <!--<th scope="row">{{ i + 1 }}</th>-->
+      <th>{{country.id_path}}</th>
+      <td>
+        <!--<img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">-->
+        {{ country.state_driver}}
+      </td>
+      <td>{{ country.time_out|date}}</td>
+      <td>{{ country.time_in|date}}</td>
+      <td>{{ country.travel_route}}</td>
+
+      <div *ngIf="validarPendiente(country.state_driver); then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock><td><button class="btn btn-primary" (click)="Aceptarpath(country.id_path,'Disponible')">Aceptar</button></td>
+      </ng-template>
+      <ng-template #elseBlock><td><button type="button" class="btn btn-danger" (click)="Aceptarpath(country.id_path,'pendiente')">rechazar</button></td></ng-template>
+
+         </tr>
+    </tbody>
+
+
+  </table>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="http://localhost:4200/TransportationRequests">1</a></li>
+      <li class="page-item"><a class="page-link" href="http://localhost:4200/TransportationRequests">2</a></li>
+      <li class="page-item"><a class="page-link" href="http://localhost:4200/TransportationRequests">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+
+</div>
