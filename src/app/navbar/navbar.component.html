@@ -1,9 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-collapse-md navbar-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">SrAgro</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
@@ -23,7 +24,7 @@
           </div>
 
           <div *ngIf = "login==='AGRICULTOR'">
-            <li class="nav-item">
+            <li class="nav-item dropdown">
               <a class="nav-link" routerLink="/add-product">Añadir producto</a>
             </li>
           </div>
@@ -51,23 +52,33 @@
 
                   <span class="badge bg-primary rounded-pill">#</span>
                 </a>
-
               </div>
+            </li>
 
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/orders-customer">Pedidos</a>
             </li>
           </div>
+
+                    
+          <div *ngIf = "login==='ADMINISTRADOR'">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/orders-admin">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-person-fill" viewBox="0 0 16 16">
+                  <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-3 4c2.623 0 4.146.826 5 1.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1.245C3.854 11.825 5.377 11 8 11z"/>
+                </svg>
+                Admin Pedidos</a>
+            </li>
+        </div>
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="search" [(ngModel)]="textoDeInput " name="texto" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="button" [routerLink]="['/Search',textoDeInput]" onclick="">Search</button>
         </form>
-
-
-        </div>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
 
-          <div *ngIf = "login==='COMPRADOR' || login==='AGRICULTOR' || login==='CUSTOMER'; else loggedOut">
+          <div *ngIf = "login==='COMPRADOR' || login==='AGRICULTOR' || login==='CUSTOMER' || login==='ADMINISTRADOR'; else loggedOut">
 
             <small><strong>{{nameUser}}</strong></small>
             &nbsp;&nbsp;
@@ -81,6 +92,9 @@
               </a>
           </ng-template>
       </div>
+
+
+        </div>
 
     </div>
   </nav>

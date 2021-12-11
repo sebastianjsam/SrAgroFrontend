@@ -1,0 +1,192 @@
+
+<br>
+<div id="pedido">
+  <div class="row">
+      <div class="col col-sm-12">
+          <ul class="list-group">
+              <li class="list-group-item">
+                <h3>
+                  Pedido
+                </h3>
+                <div class="alert alert-secondary" role="alert">            
+                  <h6>Método de envio seleccionado</h6>
+                </div>
+               
+               
+                <div class="container">
+                  <div class="row">
+
+                    <div class="col col-sm-10">
+                      <a style="color: cadetblue;">
+                        Seleccionar método de envio:
+                      </a>
+                      
+                      <div class="custom-control custom-radio">
+                        <input [(ngModel)]="send_method" value="local" type="radio" id="envio_01" name="send_method" class="custom-control-input" checked>
+                        <label class="custom-control-label" for="envio_01">
+                         <strong>Envió local y áreas aledañas a Caldas:&nbsp;&nbsp;</strong>  (NO ES DOMICILIO) Servicio de mensajería 
+                          por compañía de transportes: Tiempo de entrega de 1 a 6 días hábiles. 
+                          Aplica para los municipios de: Medellín, Manizales, Armenia, Pereira, 
+                          Municipios aledaños a Caldas, ($ 25.600)
+
+                        </label>
+                      </div>
+
+                      <div class="custom-control custom-radio">
+                        <input [(ngModel)]="send_method" value="nacional" type="radio" id="envio_02" name="send_method" class="custom-control-input">
+                        <label class="custom-control-label" for="envio_02">
+                         <strong>Envio Nacional:&nbsp;&nbsp;</strong>  Servicio de mensajería por compañía de transportes - 
+                          Tiempo de entrega de 5 a 9 días hábiles para ciudades principales y de 7-12 días hábiles 
+                          para ciudades aledañas. ( $ 45.000)
+                        
+                        </label>
+                      </div>
+<br>
+                      <div class="row">
+                        <div class="col col-sm-10"></div>
+                        <div class="col col-sm-2">
+                          <button type="button" (click)="totalPay()" class="btn btn-success">Guardar</button>
+                        </div>
+                      </div>
+
+
+
+                    </div>
+                    
+                    <div class="col col-sm-2">
+                      <div class="alert alert-secondary" role="alert">            
+                        <strong>Pagar envio:</strong>
+                        <br><br>
+                        {{value_send}}
+                        <br><br><br>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </li>
+
+              <li class="list-group-item">
+
+                <div class="row">
+                  <div class="col col-sm-12">
+                    <div class="alert alert-secondary" role="alert">            
+                      <h6>Método de pago seleccionado</h6>
+                    </div>
+
+                    <a style="color: cadetblue;">
+                      Seleccionar método de pago:
+                    </a>
+                    <div class="custom-control custom-radio">
+                      <input [(ngModel)]="pay_method" value="bank"  name="pay_method" type="radio" id="pago_01"  class="custom-control-input" checked>
+                      <label class="custom-control-label" for="pago_01">
+                       <strong>Consignación Nacional Bancolombia:&nbsp;&nbsp;</strong>Cuenta de ahorros número <strong style="color: red;">#006 989 151 01</strong> 
+                       de SrAgro S.A.S Nit: <strong style="color: red;">100.044.874</strong> Si hace consignación en una oficina fuera de Manizales, 
+                       debe adicionar $10.000 por la comisión que cobra Bancolombia. Las transferencias no tienen ningún costo; le recomendamos hacer una transferencia electrónica por cajero o PAC.
+
+                      </label>
+                    </div>
+
+                    <div class="custom-control custom-radio">
+                      <input [(ngModel)]="pay_method" value="transf" name="pay_method" type="radio" id="pago_02"  class="custom-control-input">
+                      <label class="custom-control-label" for="pago_02">
+                       <strong>Transferencia electrónica:&nbsp;&nbsp;</strong> 
+                        Bancolombia Transferencia electrónica Bancolombia ahorros <strong style="color: red;">#006 989 151 01</strong> de SrAgro S.A.S 
+                        Nit: <strong style="color: red;">100.044.874</strong> Nota: Las transferencia electrónicas desde cuentas de origen Bancolombia 
+                        NO tienen costo adicional -NO REALIZAR EL PAGO HASTA CONFIRMAR DISPONIBILIDAD VÍA CORREO ELECTRÓNICO-
+                      </label>
+                    </div>
+                  </div>
+
+                </div>               
+              
+              </li>
+              <li class="list-group-item">
+
+                <div class="input-group">
+                  <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" disabled>
+                  <div class="input-group-append">
+                    <span class="input-group-text"> <strong>Total pagar $</strong> </span>
+                    <span class="input-group-text bg-light">{{total_pay}}</span>
+                  </div>
+                </div>
+                Notas y solicitudes especiales
+
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"></span>
+                  </div>
+                  <textarea [(ngModel)]="descript_user" name="descript_user" class="form-control" placeholder="Ingresar comentario" aria-label="With textarea"></textarea>
+                </div>
+
+
+
+                <div class="custom-control custom-switch">
+                  <input [(ngModel)]="optionTerms" value="optionTerms" type="checkbox" class="custom-control-input" id="customSwitch1">
+                  <label class="custom-control-label" for="customSwitch1">Términos y condiciones</label>
+                </div>
+
+                <div class="row">
+                  <div class="col col-sm-10"></div>
+                  <div class="col col-sm-2">
+                    <button type="button" (click)="completeData()" class="btn btn-warning">Finalizar compra</button>
+                  </div>
+                </div>
+
+
+              </li>
+
+            </ul>
+      </div>
+
+  </div>
+
+  <div *ngIf = "openForm==2">
+    <div  class="window-notice" id="window-notice">
+        <div class="content">
+            <h1>Información de envio</h1>
+            <div class="content-text">
+                Por favor ingrese la información solicitada para realizar el envio.
+         <br><br>       
+<!---->
+<form>
+
+  <div class="form-group">
+    <label for="inputAddress">Dirección</label>
+    <input  [(ngModel)]="address_user" name="address_user" type="text" class="form-control" id="inputAddress" placeholder="Lugar a recibir">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">Ciudad</label>
+      <input [(ngModel)]="city_user" name="city_user" type="text" class="form-control" id="inputCity" placeholder="Manizales, Caldas">
+    </div>
+ 
+    <div class="form-group col-md-6">
+      <label for="inputZip">Número de contacto</label>
+      <input [(ngModel)]="phone_user" name="phone_user" type="text" class="form-control" id="inputZip" placeholder="celular">
+    </div>
+  </div>
+
+</form>
+                
+                
+                
+ <!---->               
+                <div class="container">
+                <div class="row">
+
+                <div class="col col-sm-7">
+                </div>
+                <div class="col col-sm-5">
+                    <button type="button" (click)="sendDataOrder()" class="btn btn-success">Aceptar</button>&nbsp;
+                    <button  type="button" (click)="closeForm()"class="btn btn-danger">Cancelar</button>
+                </div>
+                </div>
+              </div>
+        </div>
+      </div>
+</div>
+
+</div>

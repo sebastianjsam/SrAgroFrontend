@@ -21,9 +21,9 @@ import { CommonModule } from '@angular/common';
 import { CartComponent } from './componentes/cart/cart.component';
 import {AddProductCartService} from './servicios/addProductCart.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-
-
-
+import { CreateOrderComponent } from './componentes/create-order/create-order.component';
+import { GetOrdersCustomerComponent } from './componentes/get-orders-customer/get-orders-customer.component';
+import { GetOrdersAdminComponent } from './componentes/get-orders-admin/get-orders-admin.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     SearchProductComponent,
     TarjetaProductoComponent,
     CartComponent,
-
+    CreateOrderComponent,
+    GetOrdersCustomerComponent,
+    GetOrdersAdminComponent 
 
   ],
   imports: [
