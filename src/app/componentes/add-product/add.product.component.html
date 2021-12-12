@@ -72,13 +72,13 @@
                                 <td>{{producto.price}}</td>
                                 <td>{{producto.quantity}}</td>
                                 <td>
-                                    <a href="" class="a-update">
+                                    <a routerLink="/add-product" class="a-update" (click)="verCodPro(producto)">
                                         <mat-icon>update</mat-icon>
 
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="" class="a-delete">
+                                    <a routerLink="/add-product" class="a-delete" (click)="disablingProduct(producto)">
                                         <mat-icon>delete</mat-icon>
 
                                     </a>

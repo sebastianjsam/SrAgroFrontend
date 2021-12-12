@@ -10,6 +10,7 @@ export class Product{
     public quantity: number = 0;
     public discount: number = 0;
     public iva: number = 0;
+    public Disponible: boolean = true;
     public references: References = new References();
     public category: Category = new Category();
     public image_url: string="";

@@ -27,6 +27,9 @@ import { AddPath } from './componentes/add-path/add.path.component';
 
 import { ToastrModule } from 'ngx-toastr';
 import { MaterialModule } from './material.module';
+import { ModalWindow } from './modal.window/modal.window.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DataService } from './componentes/dataService/data.service';
 
 
 
@@ -43,7 +46,8 @@ import { MaterialModule } from './material.module';
     SearchProductComponent,
     TarjetaProductoComponent,
     CartComponent,
-    AddPath
+    AddPath,
+    ModalWindow
 
   ],
   imports: [
@@ -55,7 +59,8 @@ import { MaterialModule } from './material.module';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    MaterialModule
+    MaterialModule,
+    NgbModule
   ],
   providers: [AddProductCartService],
   bootstrap: [AppComponent],

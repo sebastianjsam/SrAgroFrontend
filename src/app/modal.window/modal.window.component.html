@@ -1,0 +1,65 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="exampleModalLabel">Editar producto</h4>
+  <button type="button" class="btn-larger btn-close btn-danger mr-50" aria-label="Close" (click)="modal.dismissAll()"></button>
+
+</div>
+<div class="modal-body">
+  <div class="ustify-content-center">
+
+    <div class="custom-form-modal">
+      <div class="col-12">
+        <label for="">Nombre</label>
+      <br>
+      <input type="text" placeholder="" [value]="this.datos.product.name" [(ngModel)]="this.datos.product.name">
+      <br>
+      <label for="">Precio</label>
+      <br>
+      <input type="text" [value]="this.datos.product.price" [(ngModel)]="this.datos.product.price">
+      <br>
+      <label for="">Cantidad de kilos</label>
+      <br>
+      <input type="text" [value]="this.datos.product.quantity" [(ngModel)]="this.datos.product.quantity">
+      <!-- 
+      <br>
+      <label for="">Precio</label>
+      <br>
+      <input type="text">
+      <br>
+      <label for="">Categoría</label>
+      <br>
+      <input type="text">
+      <br>
+      <label for="">Variedad</label>
+      <br>
+      <input type="text">
+      <br>
+      <label for="">Fecha de cosecha</label>
+      <br>
+      <input type="text">
+      <br>
+      <label for="">Fecha de expiración</label>
+      <br>
+      <input type="text">
+      <br>
+      <label for="">Descripción</label>
+      <br>
+      <input type="text"> -->
+    </div>
+   
+
+
+
+    </div>
+    
+  </div>
+
+
+
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="modal.dismissAll()">
+    Close
+  </button>
+  <button type="button" class="btn btn-success" (click)="actualizarProducto()">Save changes</button>
+</div>
