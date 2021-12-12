@@ -13,15 +13,19 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   addProduct(product: Product, email: any): Observable<any> {
+    console.log(product + "desde agregar");
     return this.http.post("https://localhost:44370/AddProducto?idFarmer=" + email, product);
+
   }
 
   disablingProduct(product: FarmerProducts): Observable<any> {
     return this.http.post("https://localhost:44370/disablingProduct", product);
   }
 
-  updateProduct(product: any): Observable<any> {
-    return this.http.put("https://localhost:44370/updateProduct", product);
+  updateProduct(product: Product): Observable<any> {
+    console.log(product + "desde el servicio");
+    const headers = { 'content-type': 'application/json' }
+    return this.http.post("https://localhost:44370/updateProduct", product, { 'headers': headers });
   }
 
 

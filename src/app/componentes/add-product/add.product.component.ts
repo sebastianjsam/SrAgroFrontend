@@ -88,15 +88,21 @@ export class AddProduct implements OnInit {
     }
 
     public verCodPro(product: FarmerProducts) {
-        console.log(product.cod_product);
         this.datos.product = product;
         this.ngbModal.open(ModalWindow);
         product = this.datos.product;
+
     }
 
     public disablingProduct(product: FarmerProducts) {
         console.log(product.cod_product);
-        this.productService.disablingProduct(product);
+        this.productService.disablingProduct(product).subscribe(data=>{
+            console.log(data);
+            this.verProductosDeAgricultor();
+            this.notifyService.showSuccess("Producto eliminado", "SrAgro.com");
+        }, error => {
+            console.log(error);
+        });
     }
 
     public validarCampos(): boolean {
