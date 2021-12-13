@@ -63,26 +63,12 @@
                             <th>Nombre</th>
                             <th>Precio</th>
                             <th>Cantidad</th>
-                            <th>Editar</th>
-                            <th>Eliminar</th>
                         </thead>
                         <tbody>
                             <tr *ngFor="let producto of farmersProducts">
-                                <td *ngIf="producto.Disponible">{{producto.name}}</td>
-                                <td *ngIf="producto.Disponible">{{producto.price}}</td>
-                                <td *ngIf="producto.Disponible">{{producto.quantity}}</td>
-                                <td *ngIf="producto.Disponible">
-                                    <a routerLink="/add-product" class="a-update" (click)="verCodPro(producto)">
-                                        <mat-icon>update</mat-icon>
-
-                                    </a>
-                                </td>
-                                <td *ngIf="producto.Disponible">
-                                    <a routerLink="/add-product" class="a-delete" (click)="disablingProduct(producto)">
-                                        <mat-icon>delete</mat-icon>
-
-                                    </a>
-                                </td>
+                                <td>{{producto.name}}</td>
+                                <td>{{producto.price}}</td>
+                                <td>{{producto.quantity}}</td>
                             </tr>
                         </tbody>
                     </table>

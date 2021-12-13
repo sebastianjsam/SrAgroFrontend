@@ -12,7 +12,6 @@ import { ConsultarProductoComponent } from './componentes/ConsultarProducto/Cons
 import { AddPath } from './componentes/add-path/add.path.component';
 import { TransportationRequestsComponent } from './componentes/transportationRequests/transportationRequests.component';
 import { PathhistoryComponent } from './componentes/Pathhistory/Pathhistory.component';
-import { ModalWindow } from './modal.window/modal.window.component';
 
 import { GetOrdersCustomerComponent } from './componentes/get-orders-customer/get-orders-customer.component';
 import { GetOrdersAdminComponent } from './componentes/get-orders-admin/get-orders-admin.component';
@@ -34,10 +33,8 @@ const routes: Routes = [
 
   {path: 'add-product', component: AddProduct, canActivate: [CanActivateGuard]},
   {path: 'orders-customer', component: GetOrdersCustomerComponent, canActivate: [CanActivateGuard]},
-  {path: 'orders-admin', component: GetOrdersAdminComponent, canActivate: [CanActivateGuard]},
+  {path: 'orders-admin', component: GetOrdersAdminComponent, canActivate: [CanActivateGuard]}
 
-  {path: 'add-path', component: AddPath},
-  {path: 'modal-window', component: ModalWindow}
 ];
 
 @NgModule({

@@ -3,8 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import {AddProductCartService} from 'src/app/servicios/addProductCart.service';
 import { HttpClient } from "@angular/common/http";
 import { Router } from '@angular/router';
-import { TransportInformationService } from 'src/app/servicios/transport.information.service';
-import { TransportInformation } from '../DTOS/TransportInformarionDTO';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +13,7 @@ import { TransportInformation } from '../DTOS/TransportInformarionDTO';
 export class CartComponent implements OnInit {
 
   private dataUser: string = localStorage.getItem("user")+"";
-
+  
   productU : any = "";
   dataAns : any = "";
   id : String = "";
@@ -23,7 +21,7 @@ export class CartComponent implements OnInit {
   activeTable: number = 0;
   modal : number =0;
   msgAns: String ="";
-
+ 
   name: String = "";
   descrip : String = "";
   price: number = 0;
@@ -50,41 +48,39 @@ export class CartComponent implements OnInit {
   optionDeleteProd: number=0;
 
   enableOrder: number=0;
-  public transportInformation = new Array<TransportInformation>();
 
-  constructor(private cart : AddProductCartService, private transportInformationService: TransportInformationService,
-    private route: ActivatedRoute, private http: HttpClient) {
-      this.showDataProduct(false);
+  constructor(private cart : AddProductCartService,
+    private route: ActivatedRoute, private http: HttpClient) {   
+      this.showDataProduct(false); 
      }
 
   ngOnInit():void {
     this.id = this.route.snapshot.paramMap.get('id')?.trim()+"";
     this.showDataProduct(true);
-    this.verInformaciónDeTransporte();
     //this.dataAns = this.cart.listProdCart(this.dataUser);
     this.enableRequestOrder(this.dataUser);
   }
-
+    
   showDataProduct(action: Boolean){
 
     if(action){
       this.active = 1;
       //this.productU = this.cart.showDetailsCart(this.id);
       this.showDetailsCart(this.id);
-      this.getTableProduct();
+      this.getTableProduct(); 
     }
-
+ 
   }
 
   showCart(){
-
+    
     this.dataAns = this.showFullCart(this.dataUser);
     this.activeTable=2;
   }
 
   getTableProduct(){
     this.activeTable=0;
-
+   
     this.listProdCart(this.dataUser);
     this.activeTable=1;
 
@@ -97,7 +93,7 @@ export class CartComponent implements OnInit {
       this.calcSubt();
     }
 
-
+ 
   }
 
   restCant(){
@@ -124,13 +120,13 @@ export class CartComponent implements OnInit {
   //Peticiones al servidor
   addProductToCart(){
 
-    this.http.get<any>("https://localhost:44370/addProductCart?codProduct="+this.id+"&quantity="+this.cant+"&user_email="+this.dataUser).subscribe(data => {
+    this.http.get<any>("https://localhost:44370/addProductCart?codProduct="+this.id+"&quantity="+this.cant+"&user_email="+this.dataUser).subscribe(data => {  
       console.log(data);
       if(data.estado){
         this.ansAddProduct(data.mensaje);
       }
     },error => this.error = error);
-
+       
   }
 
   showDetailsCart(codProd: String){
@@ -172,11 +168,11 @@ showFullCart(email: String){
   this.http.get<any>("https://localhost:44370/showDetailsCartFull?email="+email.trim()).subscribe(data => {
     this.dataTableCart = data;
     },error => this.error = error);
-
+    
 }
 
 openDeleteProd(idProd: number){
-
+  
   console.log("borrando...."+ idProd);
 
   this.idProdDelete=idProd;
@@ -191,17 +187,17 @@ closeDeleProd(){
 deleteProdCart(){
 
   this.http.get<any>("https://localhost:44370/deleteProductCart?cod_prod="+this.idProdDelete+"&email="+this.dataUser).subscribe(data => {
-
+  
     this.ansAddProduct(data.mensaje);
-
+ 
     console.log(data);
-
+    
   },error => this.error = error);
-
+    
   this.closeDeleProd();
  }
-
-
+ 
+ 
 
 clearCart(){
 
@@ -215,18 +211,12 @@ enableRequestOrder(email: string){
 
     this.http.get<any>("https://localhost:44370/enableOrder?email_user="+email).subscribe(data => {
      if(data.estado){
-      this.enableOrder = 2;
+      this.enableOrder = 2; 
      }
 
     },error => this.error = error);
 
-
 }
-public verInformaciónDeTransporte() {
-  this.transportInformationService.listTransportInformation().subscribe((listTransportInformation: TransportInformation[]) => {
-      this.transportInformation = listTransportInformation;
-      console.log(this.transportInformation);
-  });
 
-}
+
 }

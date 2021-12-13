@@ -16,72 +16,28 @@
                         </strong>
                         </label>
                       --><img src="../../../assets/images/CartPhoto.jpg" class="card-img" alt="...">
+                    </div>
+                </div>
+                <div class="col col-sm-7 ">
+                    <div class="row">
+                        <div class="col col-sm-7 ">
+                            <div class="card-body">
+                                <h3 class="card-title">Información</h3>
+                                <p class="card-text">
 
+                                    <strong>Nombre:</strong>&nbsp;<label id="nameProduct">{{name}}</label> &nbsp;&nbsp;<br />
+                                    <strong>Precio:</strong>$<label id="priceProduct">{{price}}</label>
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
 
-                            </div>
-                        </div>
+                                        <strong>Descripción:</strong>
+                                        <br />
+                                       {{descrip}}
 
-                        <div class="col-7">
-                            <div class="row">
-                                <div class="col-7">
-                                    <div class="card-body">
-                                        <h3 class="card-title">Información</h3>
-                                        <p class="card-text">
-
-                                            <strong>Nombre:</strong>&nbsp;<label id="nameProduct">{{name}}</label>
-                                            &nbsp;&nbsp;<br />
-                                            <strong>Precio:</strong>$<label id="priceProduct">{{price}}</label>
-                                        </p>
-                                        <p class="card-text">
-                                            <small class="text-muted">
-
-                                                <strong>Descripción:</strong>
-                                                <br />
-                                                {{descrip}}
-
-                                            </small>
-                                        </p>
-                                        <strong>Cantidad:</strong>&nbsp;
-
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <button id="decreaseProduct" (click)="restCant()" type="button"
-                                                            class="btn btn-success">-</button>
-                                                    </div>
-                                                    <input id="quantityClient" type="text" disabled
-                                                        class="form-control text-center" value="{{cant}}"
-                                                        aria-label="Amount (to the nearest dollar)">
-                                                    <div class="input-group-append">
-                                                        <button id="increaseProduct" (click)="plusCant()" type="button"
-                                                            class="btn btn-success">+</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <button type="button" (click)="addProductToCart()" class="btn btn-warning">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd"
-                                                    d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0z" />
-                                                <path
-                                                    d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1h-.003zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195l.054.012z" />
-                                                <path
-                                                    d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z" />
-                                                <path
-                                                    d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z" />
-                                            </svg>
-
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div class="col-5">
-                                    <br /><br />
-                                    <div class="alert alert-success" role="alert">
+                                    </small>
+                                </p>
+                                <strong>Cantidad:</strong>&nbsp;
 
                                 <div class="row">
                                     <div class="col col-sm-7">
@@ -93,50 +49,39 @@
                                             <div class="input-group-append">
                                                 <button id="increaseProduct"(click)="plusCant()" type="button" class="btn btn-success">+</button>
                                             </div>
-                                        <h4>Desc <label id="descProduct">{{desc}}</label>% </h4>
-                                        <br />
-                                        <div>
-                                            <strong>Total a pagar:</strong>
-                                            <label>$<label id="totalProduct">&nbsp;{{ subtotal }}</label></label> <br />
-                                            <strong>Cantidad (Kg):</strong>
-                                            <label id="cantShop">&nbsp;{{cant}}</label>
-                                            <hr />
-                                            <small>Lo mejor del campo para tu negocio :)</small>
                                         </div>
-
                                     </div>
 
-
                                 </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button type="button"(click)="addProductToCart()"  class="btn btn-warning">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0z"/>
+                                        <path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1h-.003zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195l.054.012z"/>
+                                        <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z"/>
+                                        <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"/>
+                                      </svg>
+
+                                </button>
                             </div>
-
                         </div>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="col-2">
-                <strong>Carrito</strong>
-                <div id="listCar">
-                    <div class="row">
-                        <div class="col-12">
-                            <ul class="list-group">
-                                <li class="list-group-item"><strong>N° productos:</strong> &nbsp;{{numList}}</li>
-                                <li class="list-group-item"><strong>Kg:</strong> &nbsp;{{kgFake}}</li>
-                                <li class="list-group-item">
-                                    <br><br><br><br>
-                                    <h5>Total pagar:</h5>
-                                    {{totalFake}}
-                                </li>
-                            </ul>
 
                         <div class="col col-sm-5">
                             <br /><br />
                             <div class="alert alert-success" role="alert">
 
+                                <h4>Desc <label id="descProduct">{{desc}}</label>% </h4>
+                                <br />
+                                <div>
+                                    <strong>Total a pagar:</strong>
+                                    <label>$<label id="totalProduct">&nbsp;{{ subtotal }}</label></label> <br />
+                                    <strong>Cantidad (Kg):</strong>
+                                    <label id="cantShop">&nbsp;{{cant}}</label>
+                                    <hr />
+                                    <small>Lo mejor del campo para tu negocio :)</small>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -159,74 +104,10 @@
                       </ul>
 
 
-        <div class="row mt-2 mx-auto">
-                <p>
-                    <button class="btn btn-success table-transport" type="button" data-toggle="collapse"
-                        data-target="#collapseExample" aria-expanded="true"
-                        aria-controls="collapseExample"  >
-                        información de transportes
-                    </button>
-                </p>
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body">
-                        <table *ngIf="transportInformation.length > 0" class="table table-striped table-warning table-hover table-bordered border-warning">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Apellido</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Placa</th>
-                                    <th scope="col">Estado</th>
-                                    <th scope="col">Fecha salida</th>
-                                    <th scope="col">Fecha llegada</th>
-                                    <th scope="col">Ruta</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let infot of transportInformation">
-                                    <td>{{infot.name}}</td>
-                                    <td>{{infot.last_name}}</td>
-                                    <td>{{infot.email}}</td>
-                                    <td>{{infot.license_plate}}</td>
-                                    <td>{{infot.state_driver}}</td>
-                                    <td>{{infot.time_out}}</td>
-                                    <td>{{infot.time_in}}</td>
-                                    <td>{{infot.travel_route}}</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-
-                        <p *ngIf="transportInformation.length == 0">No hay información de transporte disponible</p>
-
                 </div>
+
             </div>
         </div>
-
-        <br>
-
-        <table *ngIf="activeTable==1" class="table table-sm">
-            <caption>Listado de productos añadidos</caption>
-            <thead>
-                <tr class="table-warning">
-                    <!--<th scope="col">Cod.</th>-->
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Cantidad (Kg)</th>
-                    <th scope="col">Subtotal</th>
-                </tr>
-            </thead>
-            <tbody>
-
-
-                <tr *ngFor="let item of dataAns">
-                    <!--<th scope="row">{{item.cod_product}}</th>-->
-                    <td>{{item.name}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>{{item.subtotal}}</td>
-                </tr>
-            </tbody>
-        </table>
-        <br><br><br>
     </div>
   </div>
 
@@ -273,75 +154,14 @@
                              <br>
                              <button *ngIf = "id=='3'" class="btn btn-success btn-sm"  (click)="showCart()" type="submit">Ver Carrito</button>
                       </ul>
-
-    <div *ngIf="id=='3'">
-
-        <div class="row">
-            <div class="col-3">
-                <strong>Información Carrito</strong>
-                <div id="listCar">
-                    <div class="row">
-                        <div class="col-12">
-                            <ul class="list-group">
-                                <li class="list-group-item"><strong>N° productos:</strong> &nbsp;{{numList}}</li>
-                                <li class="list-group-item"><strong>Kg:</strong> &nbsp;{{kgFake}}</li>
-                                <li class="list-group-item">
-                                    <strong>Total pagar:</strong>
-                                    {{totalFake}}
-                                </li>
-                                <br>
-                                <button *ngIf="id=='3'" class="btn btn-success btn-sm" (click)="showCart()"
-                                    type="submit">Ver Carrito</button>
-                            </ul>
-                        </div>
-
-                    </div>
                 </div>
 
             </div>
+        </div>
 
-            <div class="col-9">
+    </div>
 
-                <div *ngIf="activeTable==2">
-                    <h3>Listado de productos</h3>
-
-                    <table class="table table-sm">
-                        <thead>
-                            <tr class="table-success">
-                                <!--<th scope="col">Cod.</th>-->
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Precio (Unidad)</th>
-                                <th scope="col">Cantidad (Kg)</th>
-                                <th scope="col">Subtotal</th>
-                                <th scope="col">Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-
-                            <tr *ngFor="let item of dataTableCart">
-                                <!--<th scope="row">{{item.cod_product}}</th>-->
-                                <td>{{item.name_product}}</td>
-                                <td>{{item.price}}</td>
-                                <td>{{item.quantity}}</td>
-                                <td>{{item.subtotal}}</td>
-                                <td>
-                                    <button type="button" (click)="openDeleteProd(item.cod_id)"
-                                        class="btn btn-danger btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-                                            <path
-                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                            <path
-                                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                                        </svg>
-                                    </button>
-                                </td>
-
-                            </tr>
-                        </tbody>
-                    </table>
-
+    <div class="col col-sm-9">
 
         <div *ngIf = "activeTable==2">
             <h3>Listado de productos</h3>
@@ -385,19 +205,12 @@
                         <button type="button" (click)="clearCart()" class="btn btn-link">Cancelar carrito <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-x-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7.354 5.646 8.5 6.793l1.146-1.147a.5.5 0 0 1 .708.708L9.207 7.5l1.147 1.146a.5.5 0 0 1-.708.708L8.5 8.207 7.354 9.354a.5.5 0 1 1-.708-.708L7.793 7.5 6.646 6.354a.5.5 0 1 1 .708-.708z"/>
                           </svg></button>
-                    <div class="row">
-                        <div class="col-3">&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button type="button" (click)="clearCart()" class="btn btn-link">Cancelar carrito <svg
-                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-cart-x-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7.354 5.646 8.5 6.793l1.146-1.147a.5.5 0 0 1 .708.708L9.207 7.5l1.147 1.146a.5.5 0 0 1-.708.708L8.5 8.207 7.354 9.354a.5.5 0 1 1-.708-.708L7.793 7.5 6.646 6.354a.5.5 0 1 1 .708-.708z" />
-                                </svg></button>
-                        </div>
                     </div>
+              </div>
 
+        </div>
 
-            </div>
+    </div>
 
 
 </div>
@@ -408,40 +221,38 @@
 
 
 </div>
-        </div>
-    </div>
 
 </div>
 
 
-<div *ngIf="modal==1">
-    <div class="window-notice" id="window-notice">
+<div *ngIf = "modal==1">
+    <div  class="window-notice" id="window-notice">
         <div class="content">
             <h1>Información</h1>
             <div class="content-text">
                 <div [outerHTML]="msgAns"></div>
                 <div class="container">
-                    <div class="row">
+                <div class="row">
 
-                        <div class="col-10"></div>
-                        <div class="col-2">
-                            <a type="button" href="/cart/3" class="btn btn-outline-danger">Cerrar</a>
-                        </div>
-
-                    </div>
+                <div class="col col-sm-10"></div>
+                <div class="col col-sm-2">
+                <a type="button" href="/cart/3" class="btn btn-outline-danger">Cerrar</a>
                 </div>
-            </div>
+
+                </div>
+              </div>
         </div>
-    </div>
+      </div>
 </div>
-<div *ngIf="optionDeleteProd==2">
-    <div class="window-notice" id="window-notice">
+</div>
+<div *ngIf = "optionDeleteProd==2">
+    <div  class="window-notice" id="window-notice">
         <div class="content">
             <h1>Carrito</h1>
             <div class="content-text">
                 Desea eliminar el producto de carrito?
                 <div class="container">
-                    <div class="row">
+                <div class="row">
 
                 <div class="col col-sm-7"></div>
                 <div class="col col-sm-5">
@@ -449,7 +260,7 @@
                     <button  type="button" (click)="closeDeleProd()"class="btn btn-danger">Cancelar</button>
                 </div>
                 </div>
-            </div>
+              </div>
         </div>
       </div>
 </div>
