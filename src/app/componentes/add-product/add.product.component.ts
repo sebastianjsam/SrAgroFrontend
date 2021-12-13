@@ -9,8 +9,8 @@ import { Category } from "../DTOS/categoryDTO";
 import { FarmerProducts } from "../DTOS/FarmersProductsDTO";
 import { Product } from "../DTOS/productDTO";
 import { References } from "../DTOS/referencesDTO";
-
-
+import { FirebaseStorage } from "firebase/storage";
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 @Component({
     selector: "add-product",
     templateUrl: "./add.product.component.html",
@@ -18,6 +18,13 @@ import { References } from "../DTOS/referencesDTO";
 })
 
 export class AddProduct implements OnInit {
+//firebase
+
+
+
+
+
+
     seleccionado: string = "";
     public categories = new Array<Category>();
     public farmersProducts = new Array<FarmerProducts>();
@@ -26,6 +33,18 @@ export class AddProduct implements OnInit {
     var = localStorage.getItem("user");
 
     public constructor(private categoriesService: CategoriesService, private productService: ProductService, private farmersproductsService: FarmersProductsService, private notifyService: NotificationService) {
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCB7g0Tp5prdq2AswTGD8l9S2w_5UXnHnk",
+  authDomain: "chatautomatizacion-d668c.firebaseapp.com",
+  databaseURL: "https://chatautomatizacion-d668c-default-rtdb.firebaseio.com",
+  projectId: "chatautomatizacion-d668c",
+  storageBucket: "chatautomatizacion-d668c.appspot.com",
+  messagingSenderId: "917251004154",
+  appId: "1:917251004154:web:78592a63c5d4cc5c515b43"
+};
+
+
 
     }
 

@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CategoriesService } from 'src/app/servicios/categories.services';
-
 import { ProductService } from 'src/app/servicios/product.services';
+
+//import { ProductService } from 'src/app/servicios/product.services';
 import { environment } from 'src/environments/environment';
 import { Category } from '../../DTOS/categoryDTO';
 import { Product } from '../../DTOS/productDTO';
@@ -81,7 +82,7 @@ export class SearchProductComponent implements OnInit {
       )
       .subscribe((data) => {
         this.productos = data;
-        //console.table(data);
+        console.table(data);
       });
   }
 

@@ -32,7 +32,8 @@ import { PathhistoryComponent } from './componentes/Pathhistory/Pathhistory.comp
 import { CreateOrderComponent } from './componentes/create-order/create-order.component';
 import { GetOrdersCustomerComponent } from './componentes/get-orders-customer/get-orders-customer.component';
 import { GetOrdersAdminComponent } from './componentes/get-orders-admin/get-orders-admin.component';
-
+//import { AngularFireModule } from '@angular/fire';
+//import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,11 @@ import { GetOrdersAdminComponent } from './componentes/get-orders-admin/get-orde
     CommonModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    /** Angular Firebase Modules */
+    //AngularFireModule.initializeApp(environment.firebase),
+    //AngularFireStorageModule
+
   ],
   providers: [AddProductCartService],
   bootstrap: [AppComponent]
