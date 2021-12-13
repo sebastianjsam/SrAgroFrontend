@@ -81,7 +81,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
         <div class="d-grid gap-2 d-md-flex justify-content-md-end ">
 
-          <div *ngIf = "login==='COMPRADOR' || login==='AGRICULTOR' || login==='CUSTOMER' || login==='DRIVER'; else loggedOut">
+          <div *ngIf = "login==='COMPRADOR' || login==='AGRICULTOR' || login==='CUSTOMER' || login=='ADMINISTRADOR'|| login==='DRIVER'; else loggedOut">
 
             <small><strong>{{nameUser}}</strong></small>
             &nbsp;&nbsp;
