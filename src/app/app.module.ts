@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +34,14 @@ import { PathhistoryComponent } from './componentes/Pathhistory/Pathhistory.comp
 import { CreateOrderComponent } from './componentes/create-order/create-order.component';
 import { GetOrdersCustomerComponent } from './componentes/get-orders-customer/get-orders-customer.component';
 import { GetOrdersAdminComponent } from './componentes/get-orders-admin/get-orders-admin.component';
+import { MaterialModule } from './material.module';
+import { ModalWindow } from './modal.window/modal.window.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DataService } from './componentes/dataService/data.service';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -44,25 +54,28 @@ import { GetOrdersAdminComponent } from './componentes/get-orders-admin/get-orde
     SearchProductComponent,
     TarjetaProductoComponent,
     CartComponent,
-    ConsultarProductoComponent,
     CreateOrderComponent,
     GetOrdersCustomerComponent,
     GetOrdersAdminComponent,
     AddPath,
     TransportationRequestsComponent,
-    PathhistoryComponent
+    PathhistoryComponent,
+    AddPath,
+
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     CommonModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MaterialModule,
+    NgbModule
   ],
   providers: [AddProductCartService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

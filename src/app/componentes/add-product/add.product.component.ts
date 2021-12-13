@@ -1,6 +1,7 @@
 import { Reference } from "@angular/compiler/src/render3/r3_ast";
 import { stringify } from "@angular/compiler/src/util";
 import { Component, OnInit } from "@angular/core";
+import { ModalWindow } from "src/app/modal.window/modal.window.component";
 import { NotificationService } from "src/app/notification.service";
 import { CategoriesService } from "src/app/servicios/categories.services";
 import { FarmersProductsService } from "src/app/servicios/farmers.products.service";
@@ -9,6 +10,9 @@ import { Category } from "../DTOS/categoryDTO";
 import { FarmerProducts } from "../DTOS/FarmersProductsDTO";
 import { Product } from "../DTOS/productDTO";
 import { References } from "../DTOS/referencesDTO";
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DataService } from "../dataService/data.service";
+
 
 
 @Component({
@@ -25,7 +29,7 @@ export class AddProduct implements OnInit {
     nameuser: string = "";
     var = localStorage.getItem("user");
 
-    public constructor(private categoriesService: CategoriesService, private productService: ProductService, private farmersproductsService: FarmersProductsService, private notifyService: NotificationService) {
+    public constructor(private categoriesService: CategoriesService, private productService: ProductService, private farmersproductsService: FarmersProductsService, private notifyService: NotificationService, private ngbModal: NgbModal, private datos: DataService) {
 
     }
 
@@ -64,7 +68,7 @@ export class AddProduct implements OnInit {
 
             );
         }
-        else{
+        else {
             console.log("false");
         }
 
@@ -83,24 +87,42 @@ export class AddProduct implements OnInit {
         });
     }
 
+    public verCodPro(product: FarmerProducts) {
+        this.datos.product = product;
+        this.ngbModal.open(ModalWindow);
+        product = this.datos.product;
+
+    }
+
+    public disablingProduct(product: FarmerProducts) {
+        console.log(product.cod_product);
+        this.productService.disablingProduct(product).subscribe(data=>{
+            console.log(data);
+            this.verProductosDeAgricultor();
+            this.notifyService.showSuccess("Producto eliminado", "SrAgro.com");
+        }, error => {
+            console.log(error);
+        });
+    }
+
     public validarCampos(): boolean {
         if (this.producto.references.entry_date > this.producto.references.expiration_date) {
             this.notifyService.showError("La fecha de cosecha es mayor a la de expiración", "srAgro.com");
             return false;
         }
-        if(this.producto.name == ""){
+        if (this.producto.name == "") {
             this.notifyService.showError("Debe ingresar un nombre de producto", "srAgro.com");
             return false;
         }
-        if(this.producto.price <= 0){
+        if (this.producto.price <= 0) {
             this.notifyService.showError("Debe ingresar un precio mayor a cero", "srAgro.com");
             return false;
         }
-        if(this.producto.quantity <= 0){
+        if (this.producto.quantity <= 0) {
             this.notifyService.showError("Debe ingresar una cantidad de producto mayor a cero", "srAgro.com");
             return false;
         }
-        if(this.producto.category.name == ""){
+        if (this.producto.category.name == "") {
             this.notifyService.showError("Debe ingresar una categoría de producto", "srAgro.com");
             return false;
         }
