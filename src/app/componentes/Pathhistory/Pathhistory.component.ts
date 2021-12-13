@@ -19,7 +19,7 @@ respuestas:string="";
 
   async Aceptarpath(idpath:string,state:string){
     //enviar actualizacion al backend para cambiar el estado del producto, solo actualiza el estado
-    this.pathService.Aceptar(idpath,state).subscribe((data) => {
+    this.pathService.AceptarRuta(idpath,state).subscribe((data) => {
       this.respuestas = data;
       alert("Solicitud procesada exitosamente");
       //console.table(data);

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PathService } from 'src/app/servicios/path.service';
+import { Order_transportation } from '../DTOS/Order_transportation';
 import { Path } from '../DTOS/PathDTO';
 
 
@@ -81,7 +82,7 @@ const COUNTRIES: Path[] = [
   styleUrls: ['./transportationRequests.component.css']
 })
 export class TransportationRequestsComponent implements OnInit {
-  paths :Path[]=[];
+  paths :Order_transportation[]=[];
   countries = COUNTRIES;
   constructor(private pathService: PathService) { }
 respuestas:string="";
@@ -92,7 +93,7 @@ respuestas:string="";
 
   async Aceptarpath(idpath:string,state:string){
     //enviar actualizacion al backend para cambiar el estado del producto, solo actualiza el estado
-    this.pathService.Aceptar(idpath,state).subscribe((data) => {
+    this.pathService.AceptarRuta(idpath,state).subscribe((data) => {
       this.respuestas = data;
       alert("Solicitud procesada exitosamente");
       //console.table(data);
@@ -103,10 +104,14 @@ respuestas:string="";
 
 
   async ConsultarPaths(correo:string) {
-    this.pathService.ListarPaths(correo).subscribe((data) => {
+    var usuario=localStorage.getItem('user') as string;
+    this.pathService.ListOrderTransportation(usuario).subscribe((data) => {
       this.paths = data;
-      console.table(data);
-    });
+     console.table(data);
+
+
+      //alert(usuario);
+     });
   }
 
   validarPendiente(state_driver:string){
@@ -117,6 +122,18 @@ respuestas:string="";
       {
         return false;
       }
+  }
+
+  async AceptarTransportar(id_orderTrans:string,state:string){
+    //enviar actualizacion al backend para cambiar el estado del producto, solo actualiza el estado
+    this.pathService.AceptarTransportar(id_orderTrans,state).subscribe((data) => {
+      this.respuestas = data;
+      alert("Solicitud procesada exitosamente");
+      this.ConsultarPaths("a");
+      //console.table(data);
+    });
+    this.ConsultarPaths("s");
+
   }
 
 

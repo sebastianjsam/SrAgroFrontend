@@ -7,28 +7,34 @@
     <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">estado pedido</th>
-      <th scope="col">fecha de salida</th>
-      <th scope="col">fecha de llegada</th>
-      <th scope="col">ruta</th>
+      <th scope="col">conductor</th>
+      <th scope="col"># Orden</th>
+      <th scope="col">Producto</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Dia de recogida</th>
+      <th scope="col">Entrega oportuna</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let country of paths; index as i">
       <!--<th scope="row">{{ i + 1 }}</th>-->
-      <th>{{country.id_path}}</th>
+      <th>{{country.id_orderTrans}}</th>
       <td>
         <!--<img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">-->
-        {{ country.state_driver}}
+        {{ country.id_driver}}
       </td>
-      <td>{{ country.time_out | date }}</td>
-      <td>{{ country.time_in | date}}</td>
-      <td>{{ country.travel_route}}</td>
+      <td>{{ country.id_order }}</td>
+      <td>{{ country.nameOrder }}</td>
+      <td>{{ country.quantityOrder }}</td>
+      <td>{{ country.state}}</td>
+      <td>{{ country.send_date| date }}</td>
+      <td>{{ country.give_date| date }}</td>
 
-      <div *ngIf="validarPendiente(country.state_driver); then thenBlock else elseBlock"></div>
-      <ng-template #thenBlock><td><button class="btn btn-primary" (click)="Aceptarpath(country.id_path,'Disponible')">Aceptar</button></td>
+      <div *ngIf="validarPendiente(country.state); then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock><td><button class="btn btn-primary" (click)="AceptarTransportar(country.id_orderTrans,'aceptar')">Aceptar</button></td>
       </ng-template>
-      <ng-template #elseBlock><td><button type="button" class="btn btn-danger" (click)="Aceptarpath(country.id_path,'pendiente')">rechazar</button></td></ng-template>
+      <ng-template #elseBlock><td><button type="button" class="btn btn-danger" (click)="AceptarTransportar(country.id_orderTrans,'pendiente')">rechazar</button></td></ng-template>
 
          </tr>
     </tbody>

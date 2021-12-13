@@ -20,9 +20,16 @@ export class PathService{
     public ListarPaths(correo:string): Observable<any>{
       return this.http.post("https://localhost:44370/SearchPathIdDrivers?idDriver=yamile.driver%40gmail.com",{'headers':Headers});
   }
-  public Aceptar(idpath:string,state:string): Observable<any>{
+  public AceptarRuta(idpath:string,state:string): Observable<any>{
     return this.http.put(" https://localhost:44370/updateState?idPath="+idpath+"&state="+state,{'headers':Headers});
 }
 
+public ListOrderTransportation(correo:string): Observable<any>{
+  return this.http.post("https://localhost:44370/transportation_orders?idDriver=yamile.driver%40gmail.com",{'headers':Headers});
+}
+
+public AceptarTransportar(id_orderTrans:string,state:string): Observable<any>{
+  return this.http.put(" https://localhost:44370/AcceptOrder?IdOrdenTransporte="+id_orderTrans+"&state="+state,{'headers':Headers});
+}
 
 }
